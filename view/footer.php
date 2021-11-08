@@ -1,11 +1,9 @@
-<html>
-    <body>
-        <footer>
-            <container class="cont_foot">
-                <div class="part1">
-                    <img class="logo" src="../img/logo.png" alt="Logo from Le Présage">
+<footer>
+            <container class="container justify-content-between cont_foot">
+                <div class="col-md-3 ">
+                    <img class="img-fluid" src="../img/logo.png" alt="Logo from Le Présage">
                 </div>
-                <div class="part2">
+                <div class="col-md-3 ">
                     <h3>Coordonnées</h3>
                     <ul>
                         <li>
@@ -22,7 +20,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="part3">
+                <div class="col-md-2 ">
                     <h3>Nos réseaux</h3>
                     <div>
                         <ul>
@@ -44,7 +42,7 @@
                         </ul> 
                     </div>
                 </div>
-                <div class="part4">
+                <div class="col-md-3 ">
                     <h3>Nos Horaires</h3>
                     <div>
                         <ul>
@@ -73,6 +71,6 @@
                     </div>
                 </div>
             </container>
-        </footer>
-    </body>
+</footer>
+</body>
 </html>

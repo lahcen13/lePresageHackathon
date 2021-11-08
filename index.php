@@ -3,6 +3,8 @@ session_start();
 require_once './include/constantes.php';
 require_once './model/bdd.php';
 
+
+
 if (isset($_POST["Valider"])) {
     $identif = $_POST["Identifiant"];
     $mdp = $_POST["Password"];
@@ -33,7 +35,7 @@ if (!isset($_REQUEST['request'])) { // Démarrage de l'application.
 
 switch ($_REQUEST['request']) {
     case Register:
-        require_once './controler/';
+        require_once './controler/register.php';
         break;
     case Deconnexion:
         session_destroy();

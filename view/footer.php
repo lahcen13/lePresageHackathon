@@ -1,7 +1,7 @@
 <footer>
             <container class="container justify-content-between cont_foot">
                 <div class="col-md-3 ">
-                    <img class="img-fluid" src="../img/logo.png" alt="Logo from Le Présage">
+                    <img class="img-fluid" src="../include/img/logo/png" alt="Logo from Le Présage">
                 </div>
                 <div class="col-md-3 ">
                     <h3>Coordonnées</h3>

@@ -1,3 +1,12 @@
+<style>
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+}
+</style>
 <footer>
     <div class="container justify-content-between">
         <div class="row">

@@ -13,9 +13,9 @@ switch ($_REQUEST['action']) {
         break;
 
     case confirmationMailInscription:
-        require './PHPMailer/src/Exception.php';
-        require './PHPMailer/src/PHPMailer.php';
-        require './PHPMailer/src/SMTP.php';
+        require './include/PHPMailer/src/Exception.php';
+        require './include/PHPMailer/src/PHPMailer.php';
+        require './include/PHPMailer/src/SMTP.php';
 
         if (isset($_POST["confirmation"])) {
             $_SESSION["nom"] = $_POST["nom"];
@@ -23,11 +23,10 @@ switch ($_REQUEST['action']) {
             $_SESSION["mail"] = $_POST["mail"];
             $_SESSION["mdp"] = $_POST["mdp"];
             // Envoyer le mail avec le code de confirmation
-            $adresseMail = $_SESSION["emailNouveauClt"];
-            $objet = "Confirmation inscription Ryoken";
-            $name = $_SESSION["NomNouveauClt"];
+            $objet = "";
+
             $_SESSION["CodeVerificationClt"] = mt_rand(10000, 99999);
-            $message = "Bonjour Mr." . $name . ", <br> votre code  de confirmation est  :" . $_SESSION["CodeVerificationClt"] . ".<br> Cordialement, <br> -L'equipe Ryoken. <br> <center> <img src='https://pbs.twimg.com/profile_images/1348343673939963904/65yHDRre.png'></center>";
+            $message = "Bonjour Mr." . $_SESSION["nom"] . ", <br> votre code  de confirmation est  :" . $_SESSION["CodeVerificationClt"] . ".<br> Cordialement, <br> -L'equipe Ryoken. <br> <center> <img src='https://pbs.twimg.com/profile_images/1348343673939963904/65yHDRre.png'></center>";
             $key = "c86e0d7c45ca4b0ae07055e4687f4dc0";
             $mail = new PHPMailer();  // Cree un nouvel objet PHPMailer
             //$mail->IsSMTP(); // active SMTP
@@ -40,13 +39,13 @@ switch ($_REQUEST['action']) {
             $mail->Username = 'ryoken.esport2021@gmail.com';
             $mail->Password = md5($key);
             $mail->SetFrom('ryoken.esport2021@gmail.com', 'Ryoken');
-            $mail->Subject = $objet;
+            $mail->Subject = 'Confirmation inscription Ryoken';
             $mail->Body = $message;
-            $mail->AddAddress($adresseMail);
+            $mail->AddAddress($_SESSION["mail"]);
             if (!$mail->Send()) {
                 echo 'Mail error: ' . $mail->ErrorInfo;
             }
-            include('./view/v_nouveauCompteConfirmation.php');
+            include('./view/confirmationRegister.php');
         } else {
             echo "<script type='text/javascript'> document.location.replace('index.php?action=150');</script>";
         }
@@ -60,9 +59,10 @@ switch ($_REQUEST['action']) {
             $_SESSION["mdp"] = $_POST["mdp"];
             echo addInvestor(md5($_SESSION["mdp"]), $_SESSION["prenom"], $_SESSION["nom"], $_SESSION["mail"]);
             session_destroy();
-            include("./view/v_nouveauCompteCodeVerification.php");
+            include("./view/confirmationRegister.php");
         } else if (isset($_POST["submitCltCodeVerfication"])  && $_POST["CodeVerificationClt"] !== $_SESSION["CodeVerificationClt"]) {
-            include("./view/v_nouveauCompteCodeVerificationError.php");
+            $er = "Le code de vérification est incorrect";
+            include("./view/confirmationRegister.php");
         } else {
             echo "<script type='text/javascript'> document.location.replace('index.php?action=150');</script>";
             exit();

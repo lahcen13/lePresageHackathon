@@ -35,7 +35,7 @@ if (!isset($_REQUEST['request'])) { // Démarrage de l'application.
 
 switch ($_REQUEST['request']) {
     case Register:
-        require_once './controler/register.php';
+        require_once './controller/register.php';
         break;
     case Deconnexion:
         session_destroy();

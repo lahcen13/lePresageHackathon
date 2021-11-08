@@ -1,8 +1,6 @@
-/* .cont_foot{
-    border: 3px solid black;
+.cont_foot{
+    
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content:flex-end;
 }
-.part2{
-    border:3px solid black;
-} */

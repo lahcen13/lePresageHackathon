@@ -1,27 +1,4 @@
 <html>
-    <head>
-        <!-- <link href="../include/style/style.css" > -->
-        <style>
-           .cont_foot{
-            border: 3px solid black;
-            display: flex;
-            flex-direction: row;
-            align-items:bottom;
-            }
-            div{
-                width:30%
-            }
-
-            img{
-                width:50%;
-                display: flex;
-                    
-            }
-            .part4{
-                width:100%;
-            }
-        </style>
-    </head>
     <body>
         <footer>
             <container class="cont_foot">

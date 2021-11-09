@@ -53,7 +53,7 @@ switch ($_REQUEST['action']) {
             include('./view/v_confirmationRegister.php');
         } else {
             
-            header('location: index.php?request=30&action=50', true);
+            header('location: index.php?request=30&action='.NouveauCompte, true);
         }
         break;
 
@@ -78,7 +78,9 @@ switch ($_REQUEST['action']) {
         } else {
             // echo "<script type='text/javascript'> document.location.replace('index.php?action=150');</script>";
             //  exit();
-            header('location: index.php?request=30&action=50', true);
+            header('location: index.php?request=30&action='.NouveauCompte, true);
         }
         break;
 }
+
+?>

@@ -5,29 +5,17 @@ require_once './model/m_bdd.php';
 
 
 
-if (isset($_POST["Valider"])) {
-    $identif = $_POST["Identifiant"];
-    $mdp = $_POST["Password"];
-    if (siIdentificationExiste($identif, md5($mdp)) == TRUE) {
-        echo CreerLesSession($identif, $_SESSION['TABLE']);
-        if (verifieSiAdmin($identif) == true && $_SESSION['TABLE'] == "adherent") {
-            $_SESSION['STATUT'] = "Admin";
-        }
-
-        if (verifieSiAdmin($identif) == false && $_SESSION['TABLE'] == "adherent") {
-            $_SESSION['STATUT'] = "Utilisateur";
-        }
-
-        if ($_SESSION['TABLE'] == "clients") {
-            $_SESSION['STATUT'] = "Clients";
-        }
-
-        header("index.php?action=10");
+if (isset($_POST["confirmationCode"])) {
+    if (siIdentificationExiste($_POST["mail"], md5($_POST["mdp"])) == TRUE) {
+        echo CreerLesSession($_POST["mail"], $_SESSION['TABLE']);
+        header('location: index.php?request=30', true);
+        exit();
     } else {
         $alert = 'Votre indentifiant et/ou  mot de passe, est/sont incorrect(s).';
+        echo $alert;
     }
 }
-
+require_once './view/v_head.html';
 
 if (!isset($_REQUEST['request'])) { // Démarrage de l'application.
     $_REQUEST['request'] = Connexion;
@@ -39,6 +27,8 @@ switch ($_REQUEST['request']) {
         break;
     case Connexion:
         require_once './view/connexion.php';
+        break;
+
         // case Deconnexion:
         //     session_destroy();
         //     header("location: index.php?action=" . Accueil);

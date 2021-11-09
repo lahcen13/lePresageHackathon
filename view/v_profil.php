@@ -147,15 +147,13 @@
         <div class="col-md-3">
             <input type="text" name="p_nom" id="p_type" required class="form-control">
         </div>
-        
     </div>
-
     <div class="row justify-content-center">
         <div class="col-md-3">
-            <input type="file" id="file" name="p_file" required>
+            <input type="file" id="file"  name="p_file" required>
         </div>
-        <div class="col-md-3">
-            <input type="text" name="p_nom" id="p_type" required class="form-control">
+        <div class=" col-md-3">
+            <input type="text" name="p_nom"  id="p_type" required class="form-control">
         </div>
         
     </div>

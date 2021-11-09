@@ -30,6 +30,9 @@ switch ($_REQUEST['request']) {
     case Profil:
         require_once './controller/c_profil.php';
         break;
+    case Admin:
+        require_once './controller/c_backOffice.php';
+        break;
 
         // case Deconnexion:
         //     session_destroy();

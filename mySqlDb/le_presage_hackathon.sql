@@ -59,7 +59,12 @@ CREATE TABLE `investor` (
   `firstName` varchar(50) NOT NULL,
   `lastName` varchar(50) NOT NULL,
   `gender` varchar(50) DEFAULT NULL,
-  `budget` int(11) DEFAULT NULL
+  `budget` int(11) DEFAULT NULL,
+  `company` varchar(50) DEFAULT NULL,
+  `adress` varchar(100) NOT NULL,
+  `city` varchar(50) NOT NULL,
+  `zipCode` int(5) NOT NULL
+  
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

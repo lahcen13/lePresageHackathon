@@ -85,19 +85,21 @@ require_once './view/v_head.html';
         <form action="index.php?request=80&action=88" method="post">
             <div class="row">
                 <div class="col-md-6">
+                    <?php isset($nom) ? "" : $nom = " "; ?>
                     <label for="nom" class=" col-form-label">Nom :</label>
                     <input type="text" name="p_nom" id="nom" value=<?php echo "'" .  $nom . "'"  ?>
                         class="form-control">
                 </div>
                 <div class="col-md-6">
+                    <?php isset($prenom) ? "" : $prenom = " "; ?>
                     <label for="prenom" class=" col-form-label">Prenom :</label>
                     <input type="text" name="p_prenom" id="prenom" value=<?php echo "'" . $prenom . "'"  ?>
                         class="form-control">
-
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6">
+                    <?php isset($email) ? "" : $email = " "; ?>
                     <label for="mail" class="form-label">Adresse mail</label>
                     <input type="mail" name="p_email" value=<?php echo  "'" . $email . "'"  ?> class="form-control"
                         id="mail" disabled>
@@ -106,14 +108,13 @@ require_once './view/v_head.html';
                     <?php isset($societe) ? "" : $societe = " "; ?>
                     <label for="societe" class="form-label">Nom de la société</label>
                     <input type="text" name="p_societe" class="form-control" id="societe"
-                        value=<?php echo "'" . $societe . "'" ?>>
-
+                        value=<?php echo "'" . $societe . "'"; ?>>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <?php isset($adresse) ? "" : $adresse = " "; ?> <label for="adresse" class="form-label">Adresse
-                    </label>
+                    <?php isset($adresse) ? "" : $adresse = " "; ?>
+                    <label for="adresse" class="form-label">Adresse </label>
                     <input type="text" name="p_adresse" value=<?php echo "'" . $adresse . "'"; ?> class="form-control"
                         id="adresse">
                 </div>
@@ -122,13 +123,12 @@ require_once './view/v_head.html';
                     <label for="ville" class="form-label">Ville</label>
                     <input type="text" name="p_ville" class="form-control" id="ville"
                         value=<?php echo "'" . $ville . "'";  ?>>
-
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <?php isset($codePostal) ? "" : $codePostal = " "; ?> <label for="codePostal"
-                        class="form-label">Code Postal</label>
+                    <?php isset($codePostal) ? "" : $codePostal = " "; ?>
+                    <label for="codePostal" class="form-label">Code Postal</label>
                     <input type="text" name="p_codePostal" class="form-control" id="codePostal"
                         value=<?php echo "'" . $codePostal . "'";  ?>>
                 </div>
@@ -137,7 +137,6 @@ require_once './view/v_head.html';
                     <label for="budget" class="form-label">Budget</label>
                     <input type="text" name="p_budget" class="form-control" id="budget"
                         value=<?php echo "'" . $budget . "'" ?>>
-
                 </div>
             </div>
             <div class="btn_log">
@@ -156,17 +155,12 @@ require_once './view/v_head.html';
         <div class="col-md-3">
             <input type="text" name="p_nom" id="p_type" required class="form-control">
         </div>
-    </div>
-    <div class="row justify-content-center">
         <div class="col-md-3">
-            <input type="file" id="file" name="p_file" required>
+            <button type=" submit" name="fic1" class="button">Envoyer</button>
         </div>
-        <div class=" col-md-3">
-            <input type="text" name="p_nom" id="p_type" required class="form-control">
-        </div>
-
     </div>
-
+</form>
+<form method="post">
     <div class="row justify-content-center">
         <div class="col-md-3">
             <input type="file" id="file" name="p_file" required>
@@ -174,9 +168,12 @@ require_once './view/v_head.html';
         <div class="col-md-3">
             <input type="text" name="p_nom" id="p_type" required class="form-control">
         </div>
-
+        <div class="col-md-3">
+            <button type=" submit" name="fic2" class="button">Envoyer</button>
+        </div>
     </div>
-
+</form>
+<form method="post">
     <div class="row justify-content-center">
         <div class="col-md-3">
             <input type="file" id="file" name="p_file" required>
@@ -184,9 +181,12 @@ require_once './view/v_head.html';
         <div class="col-md-3">
             <input type="text" name="p_nom" id="p_type" required class="form-control">
         </div>
-
+        <div class="col-md-3">
+            <button type=" submit" name="fic3" class="button">Envoyer</button>
+        </div>
     </div>
-
+</form>
+<form method="post">
     <div class="row justify-content-center">
         <div class="col-md-3">
             <input type="file" id="file" name="p_file" required>
@@ -194,9 +194,20 @@ require_once './view/v_head.html';
         <div class="col-md-3">
             <input type="text" name="p_nom" id="p_type" required class="form-control">
         </div>
+        <div class="col-md-3">
+            <button type=" submit" name="fic4" class="button">Envoyer</button>
+        </div>
     </div>
+</form>
+<form method="post">
     <div class="row justify-content-center">
-        <div class="col-1">
+        <div class="col-md-3">
+            <input type="file" id="file" name="p_file" required>
+        </div>
+        <div class="col-md-3">
+            <input type="text" name="p_nom" id="p_type" required class="form-control">
+        </div>
+        <div class="col-md-3">
             <button type=" submit" name="fic5" class="button">Envoyer</button>
         </div>
     </div>

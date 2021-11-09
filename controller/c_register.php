@@ -8,7 +8,7 @@ if (!isset($_REQUEST['action'])) {
 switch ($_REQUEST['action']) {
     case NouveauCompte:
         if(isset($_REQUEST['error']) and $_REQUEST['error']==='differentPwds'){
-            echo 'You have to enter the same password twice';
+            echo 'You have to enter the same password twice.';
         }
         include('./view/v_register.php');
         break;

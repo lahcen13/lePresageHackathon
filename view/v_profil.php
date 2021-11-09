@@ -1,11 +1,8 @@
 <?php
-//require_once './view/v_navbar.php';
-//require_once './view/v_head.html';
+require_once './view/v_navbar.php';
+require_once './view/v_head.html';
 ?>
-<head>
-<link rel="stylesheet" href="reset.css"> 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    </head>    
+ 
 <div class="container">
     <div class="card" style="width: 50rem;">
     <div class="card-body">
@@ -22,10 +19,10 @@
         <h6 class="card-subtitle mb-2 text-muted">
             Budget d'investissement :
             <?php
-            if (isset($societe)) {
+            if (isset($budget)) {
             ?>
             <div>
-            <?php echo $societe ?></div>
+            <?php echo $budget ?></div>
             <?php } 
             else echo "Non défini"
             ?>
@@ -45,7 +42,7 @@
             if (isset($adresse)) {
             ?>
             <div>
-            <?php echo $adresse, $ville, $codePostal ?></div>
+            <?php echo $adresse?></div>
             <?php } 
             else echo "Non définie"
             ?>

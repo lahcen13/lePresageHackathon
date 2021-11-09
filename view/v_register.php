@@ -1,4 +1,6 @@
 <?php
+
+require_once './view/v_navbar.php';
 require_once './view/v_head.html';
 ?>
 <div class="container">

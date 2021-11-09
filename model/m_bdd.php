@@ -54,8 +54,6 @@ function CreerLesSession($identif, $table)
     }
 }
 
-<<<<<<< Updated upstream
-=======
 function getInvestor($email)
 {
     if(isset($email)){
@@ -76,7 +74,6 @@ function updateInvestor($prenom, $nom, $email, $societe, $adresse, $ville, $code
     $preparation = SGBDConnect()->prepare($requete);
     return $preparation->execute();
 }
->>>>>>> Stashed changes
 function addInvestor($MDP, $prenom, $nom, $email)
 {
     $requete = "insert into investor ( passwordHash, firstName, lastName, email ) VALUES ('" . $MDP . "','" . $prenom . "','" . $nom . "','" . $email . "')";

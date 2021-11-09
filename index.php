@@ -8,13 +8,13 @@ require_once './model/m_bdd.php';
 if (isset($_POST["confirmationCode"])) {
     if (siIdentificationExiste($_POST["mail"], md5($_POST["mdp"])) == TRUE) {
         echo CreerLesSession($_POST["mail"], $_SESSION['TABLE']);
-        echo 'ok';
+        header('location: index.php?request=30', true);
+        exit();
     } else {
         $alert = 'Votre indentifiant et/ou  mot de passe, est/sont incorrect(s).';
         echo $alert;
     }
 }
-
 
 if (!isset($_REQUEST['request'])) { // Démarrage de l'application.
     $_REQUEST['request'] = Connexion;

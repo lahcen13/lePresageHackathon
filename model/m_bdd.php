@@ -63,3 +63,9 @@ function addInvestor($MDP, $prenom, $nom, $email)
     $preparation = SGBDConnect()->prepare($requete);
     return $preparation->execute();
 }
+
+function addFile($file, $type, $investorId){
+    $requete = "insert into document ( file, type, investorId) VALUES ('" . $file . "','" . $type . "','" . $investorId . "')";
+    $preparation = SGBDConnect()->prepare($requete);
+    return $preparation->execute();
+}

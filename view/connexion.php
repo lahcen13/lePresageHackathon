@@ -16,7 +16,8 @@ require_once './view/v_navbar.php';
                 <div class="row">
                     <div class="col-12">
                         <label for="mdp" class=" col-form-label">Mot de passe</label>
-                        <input type="password" name="mdp" id="mdp" class="form-control" aria-describedby="passwordHelpInline">
+                        <input type="password" name="mdp" id="mdp" class="form-control"
+                            aria-describedby="passwordHelpInline">
                     </div>
                 </div>
                 <div class="btn_log">
@@ -27,9 +28,9 @@ require_once './view/v_navbar.php';
                 <a href="index.php?request=30" class="btn_log"> S'inscrire</a>
             </form>
         </div>
-    </div>  
+    </div>
 </div>
 
 <?php
-require_once './view/footer.php';
+require_once './view/v_footer.php';
 ?>

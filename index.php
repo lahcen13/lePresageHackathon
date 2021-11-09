@@ -1,8 +1,8 @@
 <?php
 session_start();
 require_once './include/constantes.php';
-require_once './model/bdd.php';
-require_once './view/head.html';
+require_once './model/m_bdd.php';
+
 
 
 if (isset($_POST["confirmationCode"])) {
@@ -15,6 +15,7 @@ if (isset($_POST["confirmationCode"])) {
         echo $alert;
     }
 }
+require_once './view/v_head.html';
 
 if (!isset($_REQUEST['request'])) { // Démarrage de l'application.
     $_REQUEST['request'] = Connexion;
@@ -26,6 +27,7 @@ switch ($_REQUEST['request']) {
         break;
     case Connexion:
         require_once './view/connexion.php';
+        break;
 
         // case Deconnexion:
         //     session_destroy();

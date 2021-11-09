@@ -1,11 +1,11 @@
 <?php
-require_once './view/navbar.php';
+require_once './view/v_navbar.php';
 require_once './view/v_head.html';
 ?>
 <div class="reg">
     <div class="row">
         <div class="reg_form col-12">
-            <h2 >Enregistrez-vous</h2>
+            <h2>Enregistrez-vous</h2>
             <form action="./index.php?request=30&action=60" method="POST">
                 <div class="row">
                     <div class="col-6">
@@ -29,7 +29,8 @@ require_once './view/v_head.html';
                 <div class="row">
                     <div class="col-6">
                         <label for="mdp" class=" col-form-label">Mot de passe</label>
-                        <input type="password" name="mdp" id="mdp" class="form-control" aria-describedby="passwordHelpInline">
+                        <input type="password" name="mdp" id="mdp" class="form-control"
+                            aria-describedby="passwordHelpInline">
                     </div>
 
                     <div class="col-6">
@@ -45,14 +46,14 @@ require_once './view/v_head.html';
                     </span>
                 </div>
                 <div class="btn_log">
-                    <div >
+                    <div>
                         <button type=" submit" name="confirmation" class="button">confirmation</button>
                     </div>
                 </div>
                 <a href="index.php?request=20" class="btn_log"> S'enregistrer</a>
             </form>
         </div>
-    </div>  
+    </div>
 </div>
 <?php
 require_once './view/v_footer.php';

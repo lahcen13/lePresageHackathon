@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once './include/constantes.php';
-require_once './model/bdd.php';
+require_once './model/m_bdd.php';
 
 
 
@@ -30,12 +30,12 @@ if (isset($_POST["Valider"])) {
 
 
 if (!isset($_REQUEST['request'])) { // Démarrage de l'application.
-    $_REQUEST['request'] = Accueil;
+    $_REQUEST['request'] = Register;
 }
 
 switch ($_REQUEST['request']) {
     case Register:
-        require_once './controller/register.php';
+        require_once './controller/c_register.php';
         break;
     case Deconnexion:
         session_destroy();

@@ -2,14 +2,12 @@
 
 use PHPMailer\PHPMailer\PHPMailer;
 
-
-
 if (!isset($_REQUEST['action'])) {
     $_REQUEST['action'] = NouveauCompte;
 }
 switch ($_REQUEST['action']) {
     case NouveauCompte:
-        include('./view/register.php');
+        include('./view/v_register.php');
         break;
 
     case confirmationMailInscription:
@@ -45,7 +43,7 @@ switch ($_REQUEST['action']) {
             if (!$mail->Send()) {
                 echo 'Mail error: ' . $mail->ErrorInfo;
             }
-            include('./view/confirmationRegister.php');
+            include('./view/v_confirmationRegister.php');
         } else {
             echo "<script type='text/javascript'> document.location.replace('index.php?action=150');</script>";
         }
@@ -59,10 +57,10 @@ switch ($_REQUEST['action']) {
             $_SESSION["mdp"] = $_POST["mdp"];
             echo addInvestor(md5($_SESSION["mdp"]), $_SESSION["prenom"], $_SESSION["nom"], $_SESSION["mail"]);
             session_destroy();
-            include("./view/confirmationRegister.php");
+            include("./view/v_confirmationRegister.php");
         } else if (isset($_POST["submitCltCodeVerfication"])  && $_POST["CodeVerificationClt"] !== $_SESSION["CodeVerificationClt"]) {
             $er = "Le code de vérification est incorrect";
-            include("./view/confirmationRegister.php");
+            include("./view/v_confirmationRegister.php");
         } else {
             echo "<script type='text/javascript'> document.location.replace('index.php?action=150');</script>";
             exit();

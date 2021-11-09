@@ -50,7 +50,7 @@ require_once './view/v_head.html';
                         <button type=" submit" name="confirmation" class="button">confirmation</button>
                     </div>
                 </div>
-                <a href="index.php?request=20" class="btn_log"> S'enregistrer</a>
+                <a href="index.php?request=20" class="btn_log"> Se connecter</a>
             </form>
         </div>
     </div>

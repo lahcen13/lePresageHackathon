@@ -1,26 +1,26 @@
 <?php
 require_once './view/v_navbar.php';
 require_once './view/v_head.html';
-?>
-<div class="reg">
 
-        <div class="input-group mb-3">
-    <div class="input-group-prepend">
-        <span class="input-group-text">Upload</span>
-    </div>
-    <div class="custom-file">
-        <input type="file" class="custom-file-input" id="inputGroupFile01">
-        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-    </div>
-    </div>
-</div>
+$allInvestors = getAllInvestors();
+$totalDonations = 0;
+foreach($allInvestors as $line){        //boucle des enregistrements
 
+    $flagDossierIncomplet = false;
+    foreach($line as $key => $value ){  //boucle des colonnes
 
-
-<?php
-
-$allInvestors = getInvestor('florent.2re@gmail.com');
-var_dump($allInvestors);
+        if(!isset($value)){
+            $flagDossierIncomplet = true;
+        }
+        echo("<div>$value</div>");      //affichage de chaque valeur de colonne encadrée par un div
+    }
+    $totalDonations += $line['budget'];
+    if($flagDossierIncomplet){
+        echo("<div><bold>DOSSIER INCOMPLET</bold><div>");
+    }
+}
+echo("<div>Cagnotte totale :$totalDonations</div>");
+//var_dump($allInvestors);
 
 require_once './view/v_footer.php';
 ?>

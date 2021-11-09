@@ -19,9 +19,9 @@ function siIdentificationExiste($identif, $mdp)
     $valide = false;
     foreach ($Utilisateur as $Table) {
         if ($Table = 'investor') {
-            $requete = 'select email, passwordHash from investor where email=:identif and passwordHash=:mdp ';
+            $requete = 'SELECT email, passwordHash FROM investor WHERE email=:identif and passwordHash=:mdp ';
         } else {
-            $requete = 'select email, hashedPassword from admin where email=:identif and hashedPassword=:mdp ';
+            $requete = 'SELECT email, hashedPassword FROM admin WHERE email=:identif and hashedPassword=:mdp ';
         }
         $preparation = SGBDConnect()->prepare($requete);
         $preparation->bindParam(':identif', $identif);
@@ -43,9 +43,9 @@ function siIdentificationExiste($identif, $mdp)
 function CreerLesSession($identif, $table)
 {
     if ($table == 'admin') {
-        $requete = ' select adminId from admin where email="' . $identif . '" ';
+        $requete = ' SELECT adminId FROM admin WHERE email="' . $identif . '" ';
     } else {
-        $requete = ' select investorId, lastName, firstName from investor where email="' . $identif . '" ';
+        $requete = ' SELECT investorId, lastName, firstName FROM investor WHERE email="' . $identif . '" ';
     }
     $preparation = SGBDConnect()->query($requete);
     $preparation->setFetchMode(PDO::FETCH_NUM);
@@ -61,29 +61,38 @@ function CreerLesSession($identif, $table)
 
 function getInvestor($id)
 {
-    $requete = "select * from investor where investorId=" . $id;
+    $requete = "SELECT * FROM investor WHERE investorId=" . $id;
     $preparation = SGBDConnect()->query($requete);
     $preparation->setFetchMode(PDO::FETCH_ASSOC);
     $ligne = $preparation->fetch();
     return $ligne;
 }
 
+function getAllInvestors()
+{
+    $requete = "SELECT * FROM investor";
+    $preparation = SGBDConnect()->query($requete);
+    $preparation->setFetchMode(PDO::FETCH_ASSOC);
+    $investors = $preparation->fetchAll();
+    return $investors;
+}
+
 function updateInvestor($prenom, $nom, $societe, $adresse, $ville, $codePostal, $budget, $id)
 {
-    $requete = "update investor set firstName='" . $prenom . "', lastName='" . $nom . "', societe='" . $societe . "' , adresse='" . $adresse . "' , ville='" . $ville . "', codePostal='" . $codePostal . "' , budget='" . $budget . "' where investorId='" . $id . "'";
+    $requete = "UPDATE investor SET firstName='" . $prenom . "', lastName='" . $nom . "', societe='" . $societe . "' , adresse='" . $adresse . "' , ville='" . $ville . "', codePostal='" . $codePostal . "' , budget='" . $budget . "' WHERE investorId='" . $id . "'";
     $preparation = SGBDConnect()->prepare($requete);
     return $preparation->execute();
 }
 function addInvestor($MDP, $prenom, $nom, $email)
 {
-    $requete = "insert into investor ( passwordHash, firstName, lastName, email ) VALUES ('" . $MDP . "','" . $prenom . "','" . $nom . "','" . $email . "')";
+    $requete = "INSERT INTO investor ( passwordHash, firstName, lastName, email ) VALUES ('" . $MDP . "','" . $prenom . "','" . $nom . "','" . $email . "')";
     $preparation = SGBDConnect()->prepare($requete);
     return $preparation->execute();
 }
 
 function addFile($file, $type, $investorId)
 {
-    $requete = "insert into document ( file, type, investorId) VALUES ('" . $file . "','" . $type . "','" . $investorId . "')";
+    $requete = "INSERT INTO document ( file, type, investorId) VALUES ('" . $file . "','" . $type . "','" . $investorId . "')";
     $preparation = SGBDConnect()->prepare($requete);
     return $preparation->execute();
 }

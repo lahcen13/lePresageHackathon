@@ -1,6 +1,5 @@
 <?php
 
-
 function SGBDConnect()
 {
     try {
@@ -13,6 +12,7 @@ function SGBDConnect()
     }
     return $connexion;
 }
+
 function siIdentificationExiste($identif, $mdp)
 {
     $Utilisateur = array('admin', 'investor');
@@ -53,9 +53,6 @@ function CreerLesSession($identif, $table)
         $_SESSION['PRENOM'] = $ligne[2];
     }
 }
-
-
-
 
 function addInvestor($MDP, $prenom, $nom, $email)
 {

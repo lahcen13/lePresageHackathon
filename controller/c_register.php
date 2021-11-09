@@ -15,7 +15,7 @@ switch ($_REQUEST['action']) {
         require './include/PHPMailer/src/PHPMailer.php';
         require './include/PHPMailer/src/SMTP.php';
         
-        if (isset($_POST["confirmation"])) {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION["nom"] = $_POST["nom"];
             $_SESSION["prenom"] = $_POST["prenom"];
             $_SESSION["mail"] = $_POST["mail"];
@@ -58,22 +58,19 @@ switch ($_REQUEST['action']) {
         break;
 
     case VerificationCodeConfirmation:
-        if (isset($_POST["confirmation"])) {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        
             if (isset($_POST["confirmCode"])){
                 if($_POST["confirmCode"] == $_SESSION["CodeVerificationClt"]){
-                    $_SESSION["nom"] = $_POST["nom"];
-                    $_SESSION["prenom"] = $_POST["prenom"];
-                    $_SESSION["mail"] = $_POST["mail"];
-                    $_SESSION["mdp"] = $_POST["mdp"];
                     echo addInvestor(md5($_SESSION["mdp"]), $_SESSION["prenom"], $_SESSION["nom"], $_SESSION["mail"]);
                     session_destroy();
-                    include("./view/v_confirmationRegister.php");
-                }
-                // else{
-                //     $er = "Le code de vérification est incorrect";
-                //     include("./view/v_confirmationRegister.php");
-                // }  
+                    
+                } else{
+                    echo 'Code de confirmation invalide.';
+                }  
         
+            } else {
+                echo 'Veuillez entrer un code avant de confirmer.';
             }
         } else {
             // echo "<script type='text/javascript'> document.location.replace('index.php?action=150');</script>";

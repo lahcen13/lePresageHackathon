@@ -3,8 +3,6 @@ session_start();
 require_once './include/constantes.php';
 require_once './model/m_bdd.php';
 
-
-
 if (isset($_POST["confirmationCode"])) {
     if (siIdentificationExiste($_POST["mail"], md5($_POST["mdp"])) == TRUE) {
         echo CreerLesSession($_POST["mail"], $_SESSION['TABLE']);

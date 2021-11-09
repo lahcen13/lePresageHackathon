@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Nov 08, 2021 at 03:40 PM
--- Server version: 5.7.24
--- PHP Version: 7.4.16
+-- Hôte : 127.0.0.1:3306
+-- Généré le : mar. 09 nov. 2021 à 16:23
+-- Version du serveur :  5.7.31
+-- Version de PHP : 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,44 +18,51 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `le_presage_hackathon`
+-- Base de données : `le_presage_hackathon`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Structure de la table `admin`
 --
 
-CREATE TABLE `admin` (
-  `adminId` int(11) NOT NULL,
-  `hashedPassword` varchar(50) NOT NULL
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE IF NOT EXISTS `admin` (
+  `adminId` int(11) NOT NULL AUTO_INCREMENT,
+  `hashedPassword` text NOT NULL,
+  `email` text NOT NULL,
+  PRIMARY KEY (`adminId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `document`
+-- Structure de la table `document`
 --
 
-CREATE TABLE `document` (
-  `documentId` int(11) NOT NULL,
+DROP TABLE IF EXISTS `document`;
+CREATE TABLE IF NOT EXISTS `document` (
+  `documentId` int(11) NOT NULL AUTO_INCREMENT,
   `type` varchar(50) NOT NULL,
   `file` blob NOT NULL,
   `uploadDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `investorId` int(11) DEFAULT NULL
+  `investorId` int(11) DEFAULT NULL,
+  PRIMARY KEY (`documentId`),
+  KEY `docBelongsTo` (`investorId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `investor`
+-- Structure de la table `investor`
 --
 
-CREATE TABLE `investor` (
-  `investorId` int(11) NOT NULL,
+DROP TABLE IF EXISTS `investor`;
+CREATE TABLE IF NOT EXISTS `investor` (
+  `investorId` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(100) NOT NULL,
-  `passwordHash` varchar(50) NOT NULL,
+  `passwordHash` text NOT NULL,
   `firstName` varchar(50) NOT NULL,
   `lastName` varchar(50) NOT NULL,
   `gender` varchar(50) DEFAULT NULL,
@@ -65,42 +72,24 @@ CREATE TABLE `investor` (
   `codePostal` varchar(255) DEFAULT NULL,
   `societe` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`investorId`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
--- Indexes for table `investor`
---
-ALTER TABLE `investor`
-  ADD PRIMARY KEY (`investorId`);
-
---
--- AUTO_INCREMENT for dumped tables
+-- Déchargement des données de la table `investor`
 --
 
---
--- AUTO_INCREMENT for table `admin`
---
-ALTER TABLE `admin`
-  MODIFY `adminId` int(11) NOT NULL AUTO_INCREMENT;
+INSERT INTO `investor` (`investorId`, `email`, `passwordHash`, `firstName`, `lastName`, `gender`, `budget`, `adresse`, `ville`, `codePostal`, `societe`) VALUES
+(1, 'meedlaah@gmail.com', '309cd3800aacbd003ac36199fa537295', 'mohamed', 'lahcen', NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 'lahcen.agricu@gmail.com', '309cd3800aacbd003ac36199fa537295', 'lahcen', 'mohamed', NULL, NULL, NULL, NULL, NULL, NULL),
+(3, 'meedlaah@gmail.com', '309cd3800aacbd003ac36199fa537295', 'laahcen', 'mohamed', NULL, NULL, NULL, NULL, NULL, NULL),
+(4, 'meedlaah@gmail.com', '309cd3800aacbd003ac36199fa537295', 'mohamed', 'lahcen', NULL, NULL, NULL, NULL, NULL, NULL);
 
 --
--- AUTO_INCREMENT for table `document`
---
-ALTER TABLE `document`
-  MODIFY `documentId` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `investor`
---
-ALTER TABLE `investor`
-  MODIFY `investorId` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Constraints for dumped tables
+-- Contraintes pour les tables déchargées
 --
 
 --
--- Constraints for table `document`
+-- Contraintes pour la table `document`
 --
 ALTER TABLE `document`
   ADD CONSTRAINT `docBelongsTo` FOREIGN KEY (`investorId`) REFERENCES `investor` (`investorId`);

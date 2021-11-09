@@ -20,10 +20,20 @@ require_once './view/v_navbar.php';
                             aria-describedby="passwordHelpInline">
                     </div>
                 </div>
-                <div class="btn_log">
+                <div class="row btn_log">
                     <div>
-                        <button type=" submit" name="confirmationCode" class="button">Connexion</button>
+                        <button type=" submit" name="SubmitConnexion" class="button">Connexion</button>
                     </div>
+                    <?php
+                    if (isset($alert)) {
+                    ?>
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="alert"> <?php echo $alert ?></p>
+                        </div>
+                    </div>
+                    <?php
+                    } ?>
                 </div>
                 <a href="index.php?request=30" class="btn_log"> S'inscrire</a>
             </form>

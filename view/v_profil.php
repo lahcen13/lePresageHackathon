@@ -77,7 +77,7 @@ require_once './view/v_head.html';
             <div>
                 <?php echo $email ?></div>
             <?php } else echo "Non définie"
-?>
+            ?>
             </p>
         </div>
     </div>
@@ -159,8 +159,7 @@ require_once './view/v_head.html';
             <button type=" submit" name="fic1" class="button">Envoyer</button>
         </div>
     </div>
-</form>
-<form method="post">
+
     <div class="row justify-content-center">
         <div class="col-md-3">
             <input type="file" id="file" name="p_file" required>
@@ -172,8 +171,7 @@ require_once './view/v_head.html';
             <button type=" submit" name="fic2" class="button">Envoyer</button>
         </div>
     </div>
-</form>
-<form method="post">
+
     <div class="row justify-content-center">
         <div class="col-md-3">
             <input type="file" id="file" name="p_file" required>
@@ -185,8 +183,7 @@ require_once './view/v_head.html';
             <button type=" submit" name="fic3" class="button">Envoyer</button>
         </div>
     </div>
-</form>
-<form method="post">
+
     <div class="row justify-content-center">
         <div class="col-md-3">
             <input type="file" id="file" name="p_file" required>
@@ -198,8 +195,7 @@ require_once './view/v_head.html';
             <button type=" submit" name="fic4" class="button">Envoyer</button>
         </div>
     </div>
-</form>
-<form method="post">
+
     <div class="row justify-content-center">
         <div class="col-md-3">
             <input type="file" id="file" name="p_file" required>

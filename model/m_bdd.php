@@ -54,7 +54,7 @@ function CreerLesSession($identif, $table)
     }
 }
 
-function getInvestor($email)
+function getInvestor(?string $email) //paramètre optionnel
 {
     if(isset($email)){
         $requete = "SELECT * FROM investor WHERE email=:email";

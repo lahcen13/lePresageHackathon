@@ -46,11 +46,9 @@ require_once './view/v_head.html';
                     </span>
                 </div>
                 <div class="btn_log">
-                    <div>
-                        <button type=" submit" name="confirmation" class="button">confirmation</button>
-                    </div>
+                    <button type=" submit" name="submitRegister" class="button">Inscription</button>
                 </div>
-                <a href="index.php?request=20" class="btn_log"> S'enregistrer</a>
+                <a href="index.php?" class="btn_log"> Vous êtes déjà inscrit? Connectez-vous ici.</a>
             </form>
         </div>
     </div>

@@ -1,6 +1,5 @@
 <?php
 
-
 function SGBDConnect()
 {
     try {
@@ -13,6 +12,7 @@ function SGBDConnect()
     }
     return $connexion;
 }
+
 function siIdentificationExiste($identif, $mdp)
 {
     $Utilisateur = array('admin', 'investor');

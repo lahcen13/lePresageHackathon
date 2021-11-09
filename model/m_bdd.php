@@ -54,6 +54,29 @@ function CreerLesSession($identif, $table)
     }
 }
 
+<<<<<<< Updated upstream
+=======
+function getInvestor($email)
+{
+    if(isset($email)){
+        $requete = "SELECT * FROM investor WHERE email=:email";
+        $preparation = SGBDConnect()->prepare($requete);
+        $preparation->bindParam(':email', $email);
+        return $preparation->execute();
+    } else {
+        $requete = "SELECT * FROM investor";
+        $preparation = SGBDConnect()->prepare($requete);
+    }
+    return $preparation->execute();
+}
+
+function updateInvestor($prenom, $nom, $email, $societe, $adresse, $ville, $codePostal, $budget, $id)
+{
+    $requete = "update investor set firstName='" . $prenom . "', lastName='" . $nom . "', email='" . $email . "', societe='" . $societe . "' , adresse='" . $adresse . "' , ville='" . $ville . "', codePostal='" . $codePostal . "' , budget='" . $budget . "' where investorId='" . $id . "'";
+    $preparation = SGBDConnect()->prepare($requete);
+    return $preparation->execute();
+}
+>>>>>>> Stashed changes
 function addInvestor($MDP, $prenom, $nom, $email)
 {
     $requete = "insert into investor ( passwordHash, firstName, lastName, email ) VALUES ('" . $MDP . "','" . $prenom . "','" . $nom . "','" . $email . "')";
@@ -66,3 +89,4 @@ function addFile($file, $type, $investorId){
     $preparation = SGBDConnect()->prepare($requete);
     return $preparation->execute();
 }
+

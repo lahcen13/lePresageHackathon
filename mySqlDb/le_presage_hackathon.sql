@@ -59,25 +59,13 @@ CREATE TABLE `investor` (
   `firstName` varchar(50) NOT NULL,
   `lastName` varchar(50) NOT NULL,
   `gender` varchar(50) DEFAULT NULL,
-  `budget` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `admin`
---
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`adminId`);
-
---
--- Indexes for table `document`
---
-ALTER TABLE `document`
-  ADD PRIMARY KEY (`documentId`),
-  ADD KEY `docBelongsTo` (`investorId`);
+  `budget` int(11) DEFAULT NULL,
+  `adresse` varchar(255) DEFAULT NULL,
+  `ville` varchar(255) DEFAULT NULL,
+  `codePostal` varchar(255) DEFAULT NULL,
+  `societe` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`investorId`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 --
 -- Indexes for table `investor`

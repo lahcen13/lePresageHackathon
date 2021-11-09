@@ -26,7 +26,12 @@ switch ($_REQUEST['request']) {
     case Connexion:
         require_once './view/connexion.php';
         break;
-
+    case Profil:
+        require_once './controller/c_profil.php';
+        break;
+    case Admin:
+        require_once './controller/c_backOffice.php';
+        break;
         // case Deconnexion:
         //     session_destroy();
         //     header("location: index.php?action=" . Accueil);

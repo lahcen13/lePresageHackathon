@@ -1,17 +1,18 @@
 <?php
-require_once './view/head.html';
-require_once './view/navbar.php';
+
+require_once './view/v_navbar.php';
+require_once './view/v_head.html';
 ?>
 <div class="container">
     <h2>Enregistrez-vous</h2>
     <form action="./index.php?request=30&action=60" method="POST">
         <div class="row">
             <div class="col-4">
-                <label for="nom" class=" col-form-label">Nom :</label>
+                <label for="nom" class=" col-form-label">Nom</label>
                 <input type="text" name="nom" id="nom" class="form-control">
             </div>
             <div class="col-4">
-                <label for="prenom" class=" col-form-label">Prenom :</label>
+                <label for="prenom" class=" col-form-label">Prenom</label>
 
                 <input type="text" name="prenom" id="prenom" class="form-control">
             </div>
@@ -21,7 +22,7 @@ require_once './view/navbar.php';
             <div class="col-8">
                 <label for="mail" class="form-label">Adresse mail</label>
                 <input type="mail" name="mail" class="form-control" id="mail">
-                <div id="emailHelp" class="form-text">Nous ne partageons pas vos données.</div>
+                <div id="emailHelp" class="form-text">Nous ne partagerons pas vos données.</div>
             </div>
         </div>
         <div class="row">
@@ -50,5 +51,5 @@ require_once './view/navbar.php';
     </form>
 </div>
 <?php
-require_once './view/footer.php';
+require_once './view/v_footer.php';
 ?>

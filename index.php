@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once './include/constantes.php';
-require_once './model/bdd.php';
+require_once './model/m_bdd.php';
 
 
 
@@ -35,7 +35,7 @@ if (!isset($_REQUEST['request'])) { // Démarrage de l'application.
 
 switch ($_REQUEST['request']) {
     case Register:
-        require_once './controller/register.php';
+        require_once './controller/c_register.php';
         break;
     case Connexion:
         require_once './view/connexion.php';

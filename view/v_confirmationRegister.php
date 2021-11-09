@@ -1,5 +1,5 @@
 <?php
-require_once './view/head.html';
+require_once './view/v_head.html';
 ?>
 <div class="container">
     <form action="index.php?request=30&action=70">
@@ -27,5 +27,5 @@ if (isset($er)) {
 ?>
 </div>
 <?php
-require_once './view/footer.php';
+require_once './view/v_footer.php';
 ?>

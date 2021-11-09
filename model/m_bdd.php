@@ -80,7 +80,9 @@ function addInvestor($MDP, $prenom, $nom, $email)
 
 function addFile($file, $type, $investorId)
 {
-    $requete = "insert into document ( file, type, investorId) VALUES ('" . $file . "','" . $type . "','" . $investorId . "')";
-    $preparation = SGBDConnect()->prepare($requete);
-    return $preparation->execute();
+    $requete = "insert into document ( file, type, investorId) VALUES (':file',':type','" . $investorId . "')";
+    $stmt = SGBDConnect()->prepare($requete);
+    $stmt->bindParam(':file', $file, PDO::PARAM_LOB);
+    $stmt->bindParam(':type', $type);
+    return $stmt->execute();
 }

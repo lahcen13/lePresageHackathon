@@ -1,8 +1,8 @@
 <?php
 session_start();
 require_once './include/constantes.php';
-require_once './model/m_bdd.php';
-
+require_once './model/bdd.php';
+require_once './view/head.html';
 
 
 if (isset($_POST["confirmationCode"])) {

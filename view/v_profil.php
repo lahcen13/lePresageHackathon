@@ -82,7 +82,7 @@ require_once './view/v_head.html';
         </div>
     </div>
     <div class="col-9 prof">
-        <form action="index.php?request=80&action=88" method="post">
+        <form action="reg_prof index.php?request=80&action=88" method="post">
             <div class="row">
                 <div class="col-md-6">
                     <?php isset($nom) ? "" : $nom = " "; ?>

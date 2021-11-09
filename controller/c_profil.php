@@ -23,7 +23,7 @@ switch ($_REQUEST['action']) {
 
     case Modifier:
         if (isset($_POST["SubmitModifierProfil"])) {
-            echo updateInvestor($_POST['p_prenom'], $_POST['p_nom'], $_POST['p_societe'], $_POST['p_adresse'], $_POST['p_ville'], $_POST['p_codePostal'], $_POST['p_budget'], $_SESSION['ID']);
+            updateInvestor($_POST['p_prenom'], $_POST['p_nom'], $_POST['p_societe'], $_POST['p_adresse'], $_POST['p_ville'], $_POST['p_codePostal'], $_POST['p_budget'], $_SESSION['ID']);
             $ligne = getInvestor($_SESSION['ID']);
             $email = $ligne['email'];
             $nom = $ligne['firstName'];

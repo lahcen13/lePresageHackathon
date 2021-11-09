@@ -28,10 +28,7 @@ function siIdentificationExiste($identif, $mdp)
         $preparation->bindParam(':mdp', $mdp);
         $preparation->execute();
         $count = $preparation->rowCount();
-        echo var_dump($requete);
-        echo var_dump($count);
         if ($count > 0) {
-            echo var_dump($Table);
             $_SESSION['TABLE'] = $Table; // ca va nous servir à gérer les accessibilité dans le site et pour faire la requete pour créer les sessions
             $valide = True;
             break;

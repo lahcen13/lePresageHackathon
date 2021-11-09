@@ -57,7 +57,7 @@ function verifieSiAdmin($IDENTIF)
     return $value;
 }
 
-function    addInvestor($MDP, $prenom, $nom, $email)
+function addInvestor($MDP, $prenom, $nom, $email)
 {
     $requete = "insert into investor ( passwordHash, firstName, lastName, email) VALUES ('" . $MDP . "','" . $prenom . "','" . $nom . "','" . $email . "')";
     $preparation = SGBDConnect()->prepare($requete);

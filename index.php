@@ -30,15 +30,17 @@ if (isset($_POST["Valider"])) {
 
 
 if (!isset($_REQUEST['request'])) { // Démarrage de l'application.
-    $_REQUEST['request'] = Accueil;
+    $_REQUEST['request'] = Connexion;
 }
 
 switch ($_REQUEST['request']) {
     case Register:
         require_once './controller/register.php';
         break;
-    case Deconnexion:
-        session_destroy();
-        header("location: index.php?action=" . Accueil);
-        exit();
+    case Connexion:
+        require_once './view/connexion.php';
+        // case Deconnexion:
+        //     session_destroy();
+        //     header("location: index.php?action=" . Accueil);
+        //     exit();
 }

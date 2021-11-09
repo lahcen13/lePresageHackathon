@@ -16,7 +16,7 @@ switch ($_REQUEST['action']) {
         require './include/PHPMailer/src/Exception.php';
         require './include/PHPMailer/src/PHPMailer.php';
         require './include/PHPMailer/src/SMTP.php';
-
+        
         if (isset($_POST["confirmation"])) {
             $_SESSION["nom"] = $_POST["nom"];
             $_SESSION["prenom"] = $_POST["prenom"];
@@ -24,7 +24,6 @@ switch ($_REQUEST['action']) {
             $_SESSION["mdp"] = $_POST["mdp"];
             // Envoyer le mail avec le code de confirmation
             $objet = "";
-
             $_SESSION["CodeVerificationClt"] = mt_rand(10000, 99999);
             $message = "Bonjour Mr." . $_SESSION["nom"] . ", <br> votre code  de confirmation est  :" . $_SESSION["CodeVerificationClt"] . ".<br> Cordialement, <br> -L'equipe Ryoken. <br> <center> <img src='https://pbs.twimg.com/profile_images/1348343673939963904/65yHDRre.png'></center>";
             $key = "c86e0d7c45ca4b0ae07055e4687f4dc0";

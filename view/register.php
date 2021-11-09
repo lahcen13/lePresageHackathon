@@ -1,5 +1,6 @@
 <?php
 require_once './view/head.html';
+require_once './view/navbar.php';
 ?>
 <div class="container">
     <h2>Enregistrez-vous</h2>

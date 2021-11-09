@@ -148,7 +148,7 @@
             <input type="text" name="p_nom" id="p_type" required class="form-control">
         </div>
         <div class="col-md-3">
-            <button type=" submit" name="confirmation" class="button">Envoyer</button>
+            <button type=" submit" name="fic1" class="button">Envoyer</button>
         </div>
     </div>
 </form>
@@ -161,7 +161,7 @@
             <input type="text" name="p_nom" id="p_type" required class="form-control">
         </div>
         <div class="col-md-3">
-            <button type=" submit" name="confirmation" class="button">Envoyer</button>
+            <button type=" submit" name="fic2" class="button">Envoyer</button>
         </div>
     </div>
 </form>
@@ -174,7 +174,7 @@
             <input type="text" name="p_nom" id="p_type" required class="form-control">
         </div>
         <div class="col-md-3">
-            <button type=" submit" name="confirmation" class="button">Envoyer</button>
+            <button type=" submit" name="fic3" class="button">Envoyer</button>
         </div>
     </div>
 </form>
@@ -187,7 +187,7 @@
             <input type="text" name="p_nom" id="p_type" required class="form-control">
         </div>
         <div class="col-md-3">
-            <button type=" submit" name="confirmation" class="button">Envoyer</button>
+            <button type=" submit" name="fic4" class="button">Envoyer</button>
         </div>
     </div>
 </form>
@@ -200,7 +200,7 @@
             <input type="text" name="p_nom" id="p_type" required class="form-control">
         </div>
         <div class="col-md-3">
-            <button type=" submit" name="confirmation" class="button">Envoyer</button>
+            <button type=" submit" name="fic5" class="button">Envoyer</button>
         </div>
     </div>
 </form>

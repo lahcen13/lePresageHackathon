@@ -12,3 +12,4 @@ define('Profil', 80);
 Define('AddFile', 85);
 Define('Modifier', 88);
 Define('DeleteFile', 90);
+Define('c_profil', 89);

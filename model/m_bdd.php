@@ -57,7 +57,7 @@ function CreerLesSession($identif, $table)
 
 
 
-function addInvestor($MDP, $prenom, $nom, $email)
+function addInvestor($MDP, $prenom, $nom, $email, $civilite, $budget, $societe, $adresse, $ville, $codePostal)
 {
     $requete = "insert into investor ( passwordHash, firstName, lastName, email, gender, budget, company, adress, city, zipCode) VALUES ('" . $MDP . "','" . $prenom . "','" . $nom . "','" . $email . "','" . $civilite . "','" . $budget . "','" . $societe . "','" . $adresse . "','" . $ville . "','" . $codePostal . "')";
     $preparation = SGBDConnect()->prepare($requete);

@@ -48,15 +48,27 @@ function CreerLesSession($identif, $table)
     $preparation = SGBDConnect()->query($requete);
     $preparation->setFetchMode(PDO::FETCH_NUM);
     $ligne = $preparation->fetch();
+    $_SESSION['MAIL'] = $identif;
     if ($table !== 'admin') {
         $_SESSION['NOM'] = $ligne[1];
         $_SESSION['PRENOM'] = $ligne[2];
     }
 }
 
+function investor($email)
+{
+    $requete = "select * from investor where email=:email";
+    $preparation = SGBDConnect()->prepare($requete);
+    $preparation->bindParam(':email', $email);
+    return $preparation->execute();
+}
 
-
-
+function updateInvestor($prenom, $nom, $email, $societe, $adresse, $ville, $codePostal, $budget, $id)
+{
+    $requete = "update investor set firstName='" . $prenom . "', lastName='" . $nom . "', email='" . $email . "', societe='" . $societe . "' , adresse='" . $adresse . "' , ville='" . $ville . "', codePostal='" . $codePostal . "' , budget='" . $budget . "' where investorId='" . $id . "'";
+    $preparation = SGBDConnect()->prepare($requete);
+    return $preparation->execute();
+}
 function addInvestor($MDP, $prenom, $nom, $email)
 {
     $requete = "insert into investor ( passwordHash, firstName, lastName, email ) VALUES ('" . $MDP . "','" . $prenom . "','" . $nom . "','" . $email . "')";
@@ -64,7 +76,8 @@ function addInvestor($MDP, $prenom, $nom, $email)
     return $preparation->execute();
 }
 
-function addFile($file, $type, $investorId){
+function addFile($file, $type, $investorId)
+{
     $requete = "insert into document ( file, type, investorId) VALUES ('" . $file . "','" . $type . "','" . $investorId . "')";
     $preparation = SGBDConnect()->prepare($requete);
     return $preparation->execute();

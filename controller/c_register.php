@@ -14,7 +14,6 @@ switch ($_REQUEST['action']) {
         require './include/PHPMailer/src/Exception.php';
         require './include/PHPMailer/src/PHPMailer.php';
         require './include/PHPMailer/src/SMTP.php';
-        
         if (isset($_POST["confirmation"])) {
             $_SESSION["nom"] = $_POST["nom"];
             $_SESSION["prenom"] = $_POST["prenom"];

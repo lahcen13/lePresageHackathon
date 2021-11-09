@@ -94,41 +94,41 @@
             <div class="row">
                 <div class="col-md-6">
                     <label for="nom" class=" col-form-label">Nom :</label>
-                    <input type="text" name="p_nom" id="nom" class="form-control">
+                    <input type="text" name="p_nom" id="nom" required class="form-control">
                 </div>
                 <div class="col-md-6">
                     <label for="prenom" class=" col-form-label">Prenom :</label>
-                    <input type="text" name="p_prenom" id="prenom" class="form-control">
+                    <input type="text" name="p_prenom" id="prenom" required class="form-control">
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6">
                     <label for="mail" class="form-label">Adresse mail</label>
-                    <input type="mail" name="p_email" class="form-control" id="mail">
+                    <input type="mail" name="p_email" class="form-control" required id="mail">
                 </div>
                 <div class="col-md-6">
                     <label for="mail" class="form-label">Nom de la société</label>
-                    <input type="mail" name="p_societe" class="form-control" id="mail">
+                    <input type="mail" name="p_societe" class="form-control" required id="mail">
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6">
                     <label for="mail" class="form-label">Adresse </label>
-                    <input type="mail" name="p_adresse" class="form-control" id="mail">
+                    <input type="mail" name="p_adresse" class="form-control" required id="mail">
                 </div>
                 <div class="col-md-6">
                     <label for="mail" class="form-label">Ville</label>
-                    <input type="mail" name="p_ville" class="form-control" id="mail">
+                    <input type="mail" name="p_ville" class="form-control" required id="mail">
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6">
                     <label for="mail" class="form-label">Code Postal</label>
-                    <input type="mail" name="p_codePostal" class="form-control" id="mail">
+                    <input type="mail" name="p_codePostal" class="form-control" required id="mail">
                 </div>
                 <div class="col-md-6">
                     <label for="mail" class="form-label">Budget</label>
-                    <input type="mail" name="p_budget" class="form-control" id="mail">
+                    <input type="mail" name="p_budget" class="form-control" required id="mail">
                 </div>
             </div>
             <div class="btn_log">
@@ -147,12 +147,9 @@
         <div class="col-md-3">
             <input type="text" name="p_nom" id="p_type" required class="form-control">
         </div>
-        <div class="col-md-3">
-            <button type=" submit" name="fic1" class="button">Envoyer</button>
-        </div>
+        
     </div>
-</form>
-<form method="post">
+
     <div class="row justify-content-center">
         <div class="col-md-3">
             <input type="file" id="file" name="p_file" required>
@@ -160,12 +157,9 @@
         <div class="col-md-3">
             <input type="text" name="p_nom" id="p_type" required class="form-control">
         </div>
-        <div class="col-md-3">
-            <button type=" submit" name="fic2" class="button">Envoyer</button>
-        </div>
+        
     </div>
-</form>
-<form method="post">
+
     <div class="row justify-content-center">
         <div class="col-md-3">
             <input type="file" id="file" name="p_file" required>
@@ -173,12 +167,9 @@
         <div class="col-md-3">
             <input type="text" name="p_nom" id="p_type" required class="form-control">
         </div>
-        <div class="col-md-3">
-            <button type=" submit" name="fic3" class="button">Envoyer</button>
-        </div>
+        
     </div>
-</form>
-<form method="post">
+
     <div class="row justify-content-center">
         <div class="col-md-3">
             <input type="file" id="file" name="p_file" required>
@@ -186,12 +177,9 @@
         <div class="col-md-3">
             <input type="text" name="p_nom" id="p_type" required class="form-control">
         </div>
-        <div class="col-md-3">
-            <button type=" submit" name="fic4" class="button">Envoyer</button>
-        </div>
+        
     </div>
-</form>
-<form method="post">
+
     <div class="row justify-content-center">
         <div class="col-md-3">
             <input type="file" id="file" name="p_file" required>
@@ -199,9 +187,11 @@
         <div class="col-md-3">
             <input type="text" name="p_nom" id="p_type" required class="form-control">
         </div>
-        <div class="col-md-3">
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-1">
             <button type=" submit" name="fic5" class="button">Envoyer</button>
-        </div>
+            </div>
     </div>
 </form>
 <?php

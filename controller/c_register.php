@@ -44,7 +44,8 @@ switch ($_REQUEST['action']) {
             }
             include('./view/v_confirmationRegister.php');
         } else {
-            echo "<script type='text/javascript'> document.location.replace('index.php?action=150');</script>";
+            
+            header('location: index.php?request=30&action='.NouveauCompte, true);
         }
         break;
 
@@ -61,8 +62,11 @@ switch ($_REQUEST['action']) {
             $er = "Le code de vérification est incorrect";
             include("./view/v_confirmationRegister.php");
         } else {
-            echo "<script type='text/javascript'> document.location.replace('index.php?action=150');</script>";
-            exit();
+            // echo "<script type='text/javascript'> document.location.replace('index.php?action=150');</script>";
+            //  exit();
+            header('location: index.php?request=30&action='.NouveauCompte, true);
         }
         break;
 }
+
+?>

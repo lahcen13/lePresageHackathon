@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css"> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    </head>     
+    <body>
+        <div>
+        <!-- Form de Connexion -->
+            <form>
+                <h2>Connectez-vous</h2>
+                <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Adresse mail</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">Nous ne partageons pas vos données.</div>
+                </div>
+                <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
+                <input type="password" class="form-control" id="exampleInputPassword1">
+                </div>
+                <button type="submit" class="btn btn-primary">Se Connecter</button>
+                <button type="submit" class="btn btn-warning">Créer un compte</button>
+            
+            </form>
+        </div>
+
+
+        <!-- Spacer pour clareté-->
+
+        <div style="height: 200px;"></div>
+        
+        <!-- Form d'enregistrement-->
+
+        <h2>Enregistrez-vous</h2>
+        <form>
+            
+            <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Adresse mail</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">Nous ne partageons pas vos données.</div>
+            </div>
+            <div class="row g-3 align-items-center">
+                <div class="col-auto">
+                  <label for="inputPassword6" class="col-form-label">Mot de passe</label>
+                </div>
+                <div class="col-auto">
+                  <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                </div>
+                <div class="col-auto">
+                  <span id="passwordHelpInline" class="form-text">
+                    Doit contenir entre 8 et 20 caractères
+                  </span>
+                </div>
+              </div>
+            <div class="row g-3 align-items-center">
+                <div class="col-auto">
+                  <label for="inputPassword6" class="col-form-label">Confirmer mot de passe</label>
+                </div>
+                <div class="col-auto">
+                  <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                </div>
+                <div class="col-auto">
+                  <span id="passwordHelpInline" class="form-text">
+                    Doit contenir entre 8 et 20 caractères
+                  </span>
+                </div>
+              </div>
+            <button type="submit" class="btn btn-primary">Se Connecter</button>
+            <button type="submit" class="btn btn-warning">Créer un compte</button>
+        
+        </form>
+
+        <!-- Form de Confirmation email-->
+
+
+    </body>
+    </html>

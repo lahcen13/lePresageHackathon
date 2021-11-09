@@ -15,18 +15,24 @@ function SGBDConnect()
 }
 function siIdentificationExiste($identif, $mdp)
 {
-    $Utilisateur = array('admin', 'inves');
+    $Utilisateur = array('admin', 'investor');
     $valide = false;
-    for ($i = 0; $i < 2; $i++) {
-        $requete = 'select ID_PSEUDO, MDP from ' . $Utilisateur[$i] . ' where ID_PSEUDO=:identif and MDP=:mdp ';
+    foreach ($Utilisateur as $Table) {
+        if ($Table = 'admin') {
+            $requete = 'select email, passwordHash from investor where email=:identif and passwordHash=:mdp ';
+        } else {
+            $requete = 'select email, hashedPassword from admin where email=:identif and hashedPassword=:mdp ';
+        }
         $preparation = SGBDConnect()->prepare($requete);
         $preparation->bindParam(':identif', $identif);
         $preparation->bindParam(':mdp', $mdp);
         $preparation->execute();
         $count = $preparation->rowCount();
+
         if ($count > 0) {
-            $_SESSION['TABLE'] = $Utilisateur[$i]; // ca va nous servir à gérer les accessibilité dans le site et pour faire la requete pour créer les sessions
+            $_SESSION['TABLE'] = $Table; // ca va nous servir à gérer les accessibilité dans le site et pour faire la requete pour créer les sessions
             $valide = True;
+            break;
         }
     }
     return $valide;
@@ -34,28 +40,22 @@ function siIdentificationExiste($identif, $mdp)
 
 function CreerLesSession($identif, $table)
 {
-    $requete = ' select ID_PSEUDO, NOM, PRENOM from ' . $table . ' where ID_PSEUDO="' . $identif . '" ';
-    $preparation = SGBDConnect()->query($requete);
-    $preparation->setFetchMode(PDO::FETCH_NUM);
-    $ligne = $preparation->fetch();
-    $_SESSION['IDENTIFIANT'] = $ligne[0];
-    $_SESSION['NOM'] = $ligne[1];
-    $_SESSION['PRENOM'] = $ligne[2];
-}
-
-
-function verifieSiAdmin($IDENTIF)
-{
-    $requete = ' select adherent.STATUT from adherent where adherent.ID_PSEUDO="' . $IDENTIF . '"';
-    $preparation = SGBDConnect()->query($requete);
-    $preparation->setFetchMode(PDO::FETCH_NUM);
-    $ligne = $preparation->fetch();
-    $value = false;
-    if ($ligne[0] == "Admin") {
-        $value = true;
+    if ($table == 'admin') {
+        $requete = ' select adminId from admin where email="' . $identif . '" ';
+    } else {
+        $requete = ' select investorId, lastName, firstName from investor where email="' . $identif . '" ';
     }
-    return $value;
+    $preparation = SGBDConnect()->query($requete);
+    $preparation->setFetchMode(PDO::FETCH_NUM);
+    $ligne = $preparation->fetch();
+    if ($table !== 'admin') {
+        $_SESSION['NOM'] = $ligne[1];
+        $_SESSION['PRENOM'] = $ligne[2];
+    }
 }
+
+
+
 
 function addInvestor($MDP, $prenom, $nom, $email)
 {

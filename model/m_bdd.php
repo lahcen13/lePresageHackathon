@@ -123,3 +123,12 @@ function budgetTotal()
     $ligne = $preparation->fetch();
     return $ligne;
 }
+
+function updateStatus($bol, $id)
+{
+    $requete = "update investor set confirmBudget=:bol where investorId=:id";
+    $stmt = SGBDConnect()->prepare($requete);
+    $stmt->bindParam(':bol', $bol);
+    $stmt->bindParam(':id', $id);
+    return $stmt->execute();
+}

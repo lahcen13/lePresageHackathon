@@ -1,6 +1,7 @@
 <?php
 //PAGES BASIQUE
 define('Admin', 1);
+define('AdminManage', 3);
 define('Accueil', 10);
 define('Login', 20);
 define('Register', 30);

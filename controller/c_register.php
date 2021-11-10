@@ -7,6 +7,7 @@ if (!isset($_REQUEST['action'])) {
 }
 switch ($_REQUEST['action']) {
     case NouveauCompte:
+        
         if (isset($_REQUEST['error']) and $_REQUEST['error'] === 'differentPwds') {
             echo 'You have to enter the same password twice.';
         }
@@ -67,7 +68,7 @@ switch ($_REQUEST['action']) {
 
     case VerificationCodeConfirmation:
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
+        
             if (isset($_POST["confirmCode"])) {
                 if ($_POST["confirmCode"] == $_SESSION["CodeVerificationClt"]) {
                     echo addInvestor(md5($_SESSION["mdp"]), $_SESSION["prenom"], $_SESSION["nom"], $_SESSION["mail"]);

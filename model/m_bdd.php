@@ -15,10 +15,11 @@ function SGBDConnect()
 
 function siIdentificationExiste($identif, $mdp)
 {
-    $Utilisateur = array('admin', 'investor');
+    $Utilisateur = ['admin', 'investor'];
+
     $valide = false;
-    foreach ($Utilisateur as $Table) {
-        if ($Table = 'investor') {
+    for ($i = 0; $i < 2; $i++) {
+        if ($Utilisateur[$i] == 'investor') {
             $requete = 'SELECT email, passwordHash FROM investor WHERE email=:identif and passwordHash=:mdp ';
         } else {
             $requete = 'SELECT email, hashedPassword FROM admin WHERE email=:identif and hashedPassword=:mdp ';
@@ -29,7 +30,8 @@ function siIdentificationExiste($identif, $mdp)
         $preparation->execute();
         $count = $preparation->rowCount();
         if ($count > 0) {
-            $_SESSION['TABLE'] = $Table; // ca va nous servir à gérer les accessibilité dans le site et pour faire la requete pour créer les sessions
+            $_SESSION['TABLE'] = $Utilisateur[$i]; // ca va nous servir à gérer les accessibilité dans le site et pour faire la requete pour créer les sessions
+
             $valide = True;
             break;
         }
@@ -94,4 +96,30 @@ function addFile($file, $type, $investorId)
     $stmt->bindParam(':file', $file, PDO::PARAM_LOB);
     $stmt->bindParam(':type', $type);
     return $stmt->execute();
+}
+
+function updateCagnotte($Cagnotte)
+{
+    $requete = "update investissement set Cagnotte=:cagnotte";
+    $stmt = SGBDConnect()->prepare($requete);
+    $stmt->bindParam(':cagnotte', $Cagnotte);
+    return $stmt->execute();
+}
+
+function selectCagnotte()
+{
+    $requete = "SELECT Cagnotte FROM investissement";
+    $preparation = SGBDConnect()->query($requete);
+    $preparation->setFetchMode(PDO::FETCH_ASSOC);
+    $ligne = $preparation->fetch();
+    return $ligne;
+}
+
+function budgetTotal()
+{
+    $requete = "SELECT sum(budget) as 'budgetTotal' FROM investor";
+    $preparation = SGBDConnect()->query($requete);
+    $preparation->setFetchMode(PDO::FETCH_ASSOC);
+    $ligne = $preparation->fetch();
+    return $ligne;
 }

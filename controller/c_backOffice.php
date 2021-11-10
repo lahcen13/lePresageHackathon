@@ -1,24 +1,20 @@
 <?php
 
 if (!isset($_REQUEST['action'])) {
-    if($_SESSION['TABLE'] !== 'admin'){
+    if ($_SESSION['TABLE'] == 'admin') {
         $_REQUEST['action'] = Admin;
     } else {
-        $_REQUEST['action'] = 'other';
+        session_destroy();
+        header("location: index.php?request=45");
+        exit();
     }
-    
 }
 
 switch ($_REQUEST['action']) {
     case Admin:
-
         include('./view/v_backOffice.php');
         break;
-    default : 
+    default:
         //header('location: index.php', true);
         include('./view/v_backOffice.php');
-
 }
-
-
-?>

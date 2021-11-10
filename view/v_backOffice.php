@@ -5,10 +5,8 @@ require_once './view/v_head.html';
 $allInvestors = getAllInvestors();
 $totalDonations = 0;
 foreach($allInvestors as $line){        //boucle des enregistrements
-
     $flagDossierIncomplet = false;
     foreach($line as $key => $value ){  //boucle des colonnes
-
         if(!isset($value)){
             $flagDossierIncomplet = true;
         }

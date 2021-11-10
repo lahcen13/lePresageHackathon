@@ -6,10 +6,16 @@ require_once './model/m_bdd.php';
 
 
 if (isset($_POST["SubmitConnexion"])) {
+
     if (siIdentificationExiste($_POST["mail"], md5($_POST["mdp"])) == TRUE) {
         echo CreerLesSession($_POST["mail"], $_SESSION['TABLE']);
-        header('location: index.php?request=80', false);
-        exit();
+        if ($_SESSION['TABLE'] == 'investor') {
+            header('location: index.php?request=80', false);
+            exit();
+        } else {
+            header('location: index.php?request=1', false);
+            exit();
+        }
     } else {
         $alert = 'Votre indentifiant et/ou  mot de passe, est/sont incorrect(s).';
     }
@@ -33,9 +39,11 @@ switch ($_REQUEST['request']) {
     case Admin:
         require_once './controller/c_backOffice.php';
         break;
-
-        // case Deconnexion:
-        //     session_destroy();
-        //     header("location: index.php?action=" . Accueil);
-        //     exit();
+    case Cagnotte:
+        require_once './controller/c_cagnotte.php';
+        break;
+    case Deconnexion:
+        session_destroy();
+        header("location: index.php?request=45");
+        exit();
 }

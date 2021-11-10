@@ -121,6 +121,8 @@ function addFileInfo($fileId, $name, $link){
 
     return $preparation->execute();
 
+}
+
 function updateCagnotte($Cagnotte)
 {
     $requete = "update investissement set Cagnotte=:cagnotte";

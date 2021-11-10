@@ -28,9 +28,6 @@ require_once './view/v_head.html';
             }
                 ?>
 
-
-
-
                 </h6>
             <p class="card-text">Société :
                 <?php
@@ -78,7 +75,7 @@ require_once './view/v_head.html';
         </div>
     </div>
     <div class="col-9 prof">
-        <form action="reg_prof index.php?request=80&action=88" class="form_style" method="post">
+        <form action="index.php?request=80&action=88" class="form_style" method="post">
             <div class="row">
                 <div class="col-md-6">
                     <?php isset($nom) ? "" : $nom = " "; ?>

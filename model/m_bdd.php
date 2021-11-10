@@ -92,13 +92,13 @@ function addInvestor($MDP, $prenom, $nom, $email)
 function addFile($investorId)
 {
     //$requete = "insert into document ( name, link, uploadDate, investorId) VALUES (':name',':link','" . $investorId . "'";
-    $requete = "insert into document (investorId) VALUES ('".$investorId . "')";
+    $requete = "insert into document (investorId) VALUES ('" . $investorId . "')";
     $connexion = SGBDConnect();
-    $stmt = $connexion ->prepare($requete);
+    $stmt = $connexion->prepare($requete);
     //$stmt->bindParam(':name', $name);
     //$stmt->bindParam(':link', $link, PDO::PARAM_LOB);
 
-    if($stmt->execute() === true) {
+    if ($stmt->execute() === true) {
         $last_id = $connexion->lastInsertId();
         return $last_id;
     } else {
@@ -106,12 +106,13 @@ function addFile($investorId)
     }
 }
 
-function addFileInfo($fileId, $name, $link){
+function addFileInfo($fileId, $name, $link)
+{
     $requete = 'UPDATE document SET `name`=:docName,`link`=:docLink WHERE `documentId`=:docId;';
-    
+
     $preparation = SGBDConnect()->prepare($requete);
 
-    $preparation->bindParam(':docId', $fileId,PDO::PARAM_INT);
+    $preparation->bindParam(':docId', $fileId, PDO::PARAM_INT);
     $preparation->bindParam(':docName', $name);
     $preparation->bindParam(':docLink', $link, PDO::PARAM_LOB);
 
@@ -120,7 +121,6 @@ function addFileInfo($fileId, $name, $link){
     var_dump($link);
 
     return $preparation->execute();
-
 }
 
 function updateCagnotte($Cagnotte)
@@ -142,7 +142,7 @@ function selectCagnotte()
 
 function budgetTotal()
 {
-    $requete = "SELECT sum(budget) as 'budgetTotal' FROM investor";
+    $requete = "SELECT sum(budget) as 'budgetTotal' FROM investor where confirmBudget=1";
     $preparation = SGBDConnect()->query($requete);
     $preparation->setFetchMode(PDO::FETCH_ASSOC);
     $ligne = $preparation->fetch();

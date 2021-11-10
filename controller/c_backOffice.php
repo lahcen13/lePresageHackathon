@@ -16,10 +16,10 @@ switch ($_REQUEST['action']) {
         break;
     case AdminManage:
         if (isset($_POST['ChangeStatusSubmit'])) {
-            echo var_dump($_POST['statut']);
-            // updateStatus($bol, $id);
+            updateStatus($_POST['statut'], $_POST['idInvestor']);
+            header('location: index.php?request=1');
         }
-        $ligne = getInvestor($_SESSION['ID']);
+        $ligne = getInvestor($_POST['idInvestor']);
         $confirmBudget = $ligne['confirmBudget'];
         include('./view/v_backOfficeManage.php');
         break;

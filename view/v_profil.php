@@ -79,13 +79,13 @@ require_once './view/v_head.html';
             <div class="row">
                 <div class="col-md-6">
                     <?php isset($nom) ? "" : $nom = " "; ?>
-                    <label for="nom" class=" col-form-label">Nom :</label>
+                    <label for="nom" class=" col-form-label">Nom</label>
                     <input type="text" name="p_nom" id="nom" value=<?php echo "'" .  $nom . "'"  ?>
                         class="form-control">
                 </div>
                 <div class="col-md-6">
                     <?php isset($prenom) ? "" : $prenom = " "; ?>
-                    <label for="prenom" class=" col-form-label">Prenom :</label>
+                    <label for="prenom" class=" col-form-label">Prenom</label>
                     <input type="text" name="p_prenom" id="prenom" value=<?php echo "'" . $prenom . "'"  ?>
                         class="form-control">
                 </div>
@@ -107,7 +107,7 @@ require_once './view/v_head.html';
             <div class="row">
                 <div class="col-md-6">
                     <?php isset($adresse) ? "" : $adresse = " "; ?>
-                    <label for="adresse" class="form-label">Adresse </label>
+                    <label for="adresse" class="form-label">Adresse</label>
                     <input type="text" name="p_adresse" value=<?php echo "'" . $adresse . "'"; ?> class="form-control"
                         id="adresse">
                 </div>

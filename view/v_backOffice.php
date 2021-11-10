@@ -23,7 +23,7 @@ foreach ($allInvestors as $line) {        //boucle des enregistrements
         if ($key !== "passwordHash") {
             if ($key !== "confirmBudget") {
                 if ($key !== "investorId") {
-                    echo ("<th>$value</th>");
+                    echo ("<td>$value</tdl>");
                 }
             }
         }

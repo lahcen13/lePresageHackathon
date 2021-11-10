@@ -89,14 +89,22 @@ function addInvestor($MDP, $prenom, $nom, $email)
     return $preparation->execute();
 }
 
+function getAllFilesOfInvestor($investorId){
+    $requete = "SELECT `documentId`, `name`, `link`, `uploadDate` FROM document WHERE investorId=:id;";
+    
+    $preparation = SGBDConnect()->prepare($requete);
+    $preparation->bindParam(':id', $investorId);
+    $preparation->setFetchMode(PDO::FETCH_ASSOC);
+    $preparation->execute();
+    $files = $preparation->fetchAll();
+    return $files;
+}
+
 function addFile($investorId)
 {
-    //$requete = "insert into document ( name, link, uploadDate, investorId) VALUES (':name',':link','" . $investorId . "'";
     $requete = "insert into document (investorId) VALUES ('" . $investorId . "')";
     $connexion = SGBDConnect();
     $stmt = $connexion->prepare($requete);
-    //$stmt->bindParam(':name', $name);
-    //$stmt->bindParam(':link', $link, PDO::PARAM_LOB);
 
     if ($stmt->execute() === true) {
         $last_id = $connexion->lastInsertId();
@@ -155,3 +163,4 @@ function updateStatus($bol, $id){
     $stmt->bindParam(':id', $id);
     return $stmt->execute();
 }
+

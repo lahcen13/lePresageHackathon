@@ -143,60 +143,16 @@ require_once './view/v_head.html';
         </form>
     </div>
 </div>
-<div class="form_style">
-    <form method="post" enctype="multipart/form-data" action="index.php?request=80&action=85">
-        <div class="row justify-content-center">
-            <div class="col-md-3">
-                <input type="file" id="file" name="p_file1" required>
-            </div>
-            <div class="col-md-3">
-                <input type="text" name="p_nom1" id="p_type" required class="form-control">
-            </div>
+
+<form method="post" enctype="multipart/form-data" action="index.php?request=80&action=85">
+    <div class="row justify-content-center">
+        <div class="col-md-3">
+            <input type="file" id="file" name="upload_file" required>
         </div>
-
-        <div class="row justify-content-center">
-            <div class="col-md-3">
-                <input type="file" id="file" name="p_file2" required>
-            </div>
-            <div class="col-md-3">
-                <input type="text" name="p_nom2" 2 id="p_type" required class="form-control">
-            </div>
-
+        <div class="col-md-3">
+            <button type=" submit" name="addFileSubmit" class="button">Envoyer</button>
         </div>
+        
+    </div>
 
-        <div class="row justify-content-center">
-            <div class="col-md-3">
-                <input type="file" id="file" name="p_file3" required>
-            </div>
-            <div class="col-md-3">
-                <input type="text" name="p_nom3" id="p_type" required class="form-control">
-            </div>
-
-        </div>
-
-        <div class="row justify-content-center">
-            <div class="col-md-3">
-                <input type="file" id="file" name="p_file4" required>
-            </div>
-            <div class="col-md-3">
-                <input type="text" name="p_nom4" id="p_type" required class="form-control">
-            </div>
-
-        </div>
-
-        <div class="row justify-content-center">
-            <div class="col-md-3">
-                <input type="file" id="file" name="p_file5" required>
-            </div>
-            <div class="col-md-3">
-                <input type="text" name="p_nom5" id="p_type" required class="form-control">
-            </div>
-
-        </div>
-        <div class="row justify-content-center">
-            <div class=" col-auto">
-                <button type=" submit" name="addFileSubmit" class="button">Envoyer</button>
-            </div>
-        </div>
-    </form>
-</div>
+</form>

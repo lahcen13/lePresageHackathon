@@ -16,7 +16,6 @@ switch ($_REQUEST['action']) {
         break;
     case AdminManage:
         if (isset($_POST['ChangeStatusSubmit'])) {
-
             echo var_dump($_POST['statut']);
             // updateStatus($bol, $id);
         }

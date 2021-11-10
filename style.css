@@ -69,6 +69,7 @@ div.container.justify-content-between{
   padding:5%;
   border-radius: 15px 5px ; 
   background-color: #F6F5F4;
+  box-shadow: 10px 10px #E3E0DD;
 }
 body{
   background-color: black;
@@ -126,3 +127,19 @@ body{
       text-align: left;
     }
   }
+.form_style{
+  background-color: #F6F5F4;
+  padding:2%;
+  border-radius: 10px 20px;
+  box-shadow: 10px 10px #E3E0DD;
+}
+
+.Table_head{
+  margin:3px;
+  background-color: aliceblue;
+}
+
+table{
+  border: 5px solid red;
+  border-radius: 5px;
+}

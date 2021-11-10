@@ -138,18 +138,23 @@ require_once './view/v_head.html';
                 </div>
             </div>
         </form>
+
+        <form method="post" enctype="multipart/form-data" action="index.php?request=80&action=85" class="">
+            <div class="row justify-content-center">
+                <div class="col-md-3">
+                    <input type="file" id="file" name="upload_file" required>
+                </div>
+                <div class="col-md-3">
+                    <button type=" submit" name="addFileSubmit" class="button">Envoyer</button>
+                </div>
+                
+            </div>
+
+        </form>
     </div>
+    
+
+    
 </div>
 
-<form method="post" enctype="multipart/form-data" action="index.php?request=80&action=85">
-    <div class="row justify-content-center">
-        <div class="col-md-3">
-            <input type="file" id="file" name="upload_file" required>
-        </div>
-        <div class="col-md-3">
-            <button type=" submit" name="addFileSubmit" class="button">Envoyer</button>
-        </div>
-        
-    </div>
 
-</form>

@@ -5,7 +5,7 @@
     justify-content:flex-end;
 }
 footer {
-  position: absolute;
+  position: fixed;
   left: 0;
   bottom: 0;
   height: 100px;
@@ -144,3 +144,9 @@ table{
   border-radius: 5px;
 }
 
+.manage_back{
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content:center;
+}

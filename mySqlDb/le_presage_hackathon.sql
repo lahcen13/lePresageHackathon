@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 10 nov. 2021 à 03:35
+-- Généré le : mer. 10 nov. 2021 à 07:37
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -51,36 +51,38 @@ INSERT INTO `admin` (`adminId`, `hashedPassword`, `email`) VALUES
 DROP TABLE IF EXISTS `document`;
 CREATE TABLE IF NOT EXISTS `document` (
   `documentId` int(11) NOT NULL AUTO_INCREMENT,
-  `type` varchar(50) NOT NULL,
-  `file` blob NOT NULL,
-  `uploadDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `name` varchar(50) DEFAULT NULL,
+  `link` text,
+  `uploadDate` datetime DEFAULT CURRENT_TIMESTAMP,
   `investorId` int(11) DEFAULT NULL,
   PRIMARY KEY (`documentId`),
   KEY `docBelongsTo` (`investorId`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `document`
 --
 
-INSERT INTO `document` (`documentId`, `type`, `file`, `uploadDate`, `investorId`) VALUES
-(1, ':type', 0x3a66696c65, '2021-11-09 22:47:54', 1),
-(2, ':type', 0x3a66696c65, '2021-11-09 22:49:21', 1),
-(3, ':type', 0x3a66696c65, '2021-11-09 22:49:21', 1),
-(4, ':type', 0x3a66696c65, '2021-11-09 22:49:22', 1),
-(5, ':type', 0x3a66696c65, '2021-11-09 22:49:22', 1),
-(6, ':type', 0x3a66696c65, '2021-11-09 22:49:22', 1),
-(7, ':type', 0x3a66696c65, '2021-11-09 23:22:45', 1),
-(8, ':type', 0x3a66696c65, '2021-11-09 23:22:45', 1),
-(9, ':type', 0x3a66696c65, '2021-11-09 23:22:45', 1),
-(10, ':type', 0x3a66696c65, '2021-11-09 23:24:33', 1),
-(11, ':type', 0x3a66696c65, '2021-11-09 23:24:33', 1),
-(12, ':type', 0x3a66696c65, '2021-11-09 23:24:33', 1),
-(13, ':type', 0x3a66696c65, '2021-11-09 23:25:00', 1),
-(14, ':type', 0x3a66696c65, '2021-11-09 23:25:00', 1),
-(15, ':type', 0x3a66696c65, '2021-11-09 23:25:00', 1),
-(16, ':type', 0x3a66696c65, '2021-11-09 23:25:00', 1),
-(17, ':type', 0x3a66696c65, '2021-11-09 23:25:00', 1);
+INSERT INTO `document` (`documentId`, `name`, `link`, `uploadDate`, `investorId`) VALUES
+(1, ':type', ':file', '2021-11-09 22:47:54', 1),
+(2, ':type', ':file', '2021-11-09 22:49:21', 1),
+(3, ':type', ':file', '2021-11-09 22:49:21', 1),
+(4, ':type', ':file', '2021-11-09 22:49:22', 1),
+(5, ':type', ':file', '2021-11-09 22:49:22', 1),
+(6, ':type', ':file', '2021-11-09 22:49:22', 1),
+(7, ':type', ':file', '2021-11-09 23:22:45', 1),
+(8, ':type', ':file', '2021-11-09 23:22:45', 1),
+(9, ':type', ':file', '2021-11-09 23:22:45', 1),
+(10, ':type', ':file', '2021-11-09 23:24:33', 1),
+(11, ':type', ':file', '2021-11-09 23:24:33', 1),
+(12, ':type', ':file', '2021-11-09 23:24:33', 1),
+(13, ':type', ':file', '2021-11-09 23:25:00', 1),
+(14, ':type', ':file', '2021-11-09 23:25:00', 1),
+(15, ':type', ':file', '2021-11-09 23:25:00', 1),
+(16, ':type', ':file', '2021-11-09 23:25:00', 1),
+(17, ':type', ':file', '2021-11-09 23:25:00', 1),
+(18, 'téléchargement.jfif', '../uploads/18.jfif', '2021-11-10 08:26:18', 5),
+(19, 'epitech.jfif', '../uploads/19.jfif', '2021-11-10 08:29:03', 5);
 
 -- --------------------------------------------------------
 
@@ -120,7 +122,7 @@ CREATE TABLE IF NOT EXISTS `investor` (
   `codePostal` varchar(255) DEFAULT NULL,
   `societe` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`investorId`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `investor`
@@ -128,9 +130,7 @@ CREATE TABLE IF NOT EXISTS `investor` (
 
 INSERT INTO `investor` (`investorId`, `email`, `passwordHash`, `firstName`, `lastName`, `budget`, `confirmBudget`, `adresse`, `ville`, `codePostal`, `societe`) VALUES
 (1, 'meedlaah@gmail.com', '309cd3800aacbd003ac36199fa537295', 'mohamed', 'lahcen', 1200, 0, 'agadiir', 'MARSEILLE', '13996', 'pas de societéee'),
-(2, 'lahcen.agricu@gmail.com', '309cd3800aacbd003ac36199fa537295', 'lahcen', 'mohamed', 23, 0, NULL, NULL, NULL, NULL),
-(3, 'meedlaah@gmail.com', '309cd3800aacbd003ac36199fa537295', 'laahcen', 'mohamed', 10000, 0, NULL, NULL, NULL, NULL),
-(4, 'meedlaah@gmail.com', '309cd3800aacbd003ac36199fa537295', 'mohamed', 'lahcen', NULL, 0, NULL, NULL, NULL, NULL);
+(5, 'florent.2re@gmail.com', '202cb962ac59075b964b07152d234b70', 'Dreux', 'Florent', 10000, 0, '105 Chemin de Mérindol', 'Mornas', '84550', 'Epitech');
 
 --
 -- Contraintes pour les tables déchargées

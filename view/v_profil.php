@@ -79,13 +79,13 @@ require_once './view/v_head.html';
             <div class="row">
                 <div class="col-md-6">
                     <?php isset($nom) ? "" : $nom = " "; ?>
-                    <label for="nom" class=" col-form-label">Nom :</label>
+                    <label for="nom" class=" col-form-label">Nom</label>
                     <input type="text" name="p_nom" id="nom" value=<?php echo "'" .  $nom . "'"  ?>
                         class="form-control">
                 </div>
                 <div class="col-md-6">
                     <?php isset($prenom) ? "" : $prenom = " "; ?>
-                    <label for="prenom" class=" col-form-label">Prenom :</label>
+                    <label for="prenom" class=" col-form-label">Prenom</label>
                     <input type="text" name="p_prenom" id="prenom" value=<?php echo "'" . $prenom . "'"  ?>
                         class="form-control">
                 </div>
@@ -107,7 +107,7 @@ require_once './view/v_head.html';
             <div class="row">
                 <div class="col-md-6">
                     <?php isset($adresse) ? "" : $adresse = " "; ?>
-                    <label for="adresse" class="form-label">Adresse </label>
+                    <label for="adresse" class="form-label">Adresse</label>
                     <input type="text" name="p_adresse" value=<?php echo "'" . $adresse . "'"; ?> class="form-control"
                         id="adresse">
                 </div>
@@ -139,17 +139,48 @@ require_once './view/v_head.html';
             </div>
         </form>
     </div>
+
+    <article class="container">
+    <div class="reg_prof">
+        <?php
+            $allfiles = getAllFilesOfInvestor($_SESSION['ID']);
+            echo "<table class=table row'>";
+            echo "<thead class='Table_head col-8'>";
+            echo "<tr><th>ID</th><th>Nom</th><th>Lien de téléchargement</th><th>Date de création</th></tr>";
+            echo "</thead>";
+            echo "<tbody class='Table_body'>";
+            foreach ($allfiles as $line) {        //boucle des enregistrements
+                echo("<tr>");
+                foreach ($line as $key => $value) {  //boucle des colonnes
+                    if($key==='link'){
+                        echo("<td><a href='$value' download>$value</a></td>");
+                    } else {
+                        echo("<td>$value</td>");
+                    }                   
+                }
+                echo("</tr>");
+            }
+            echo "</tbody>";
+            echo "</table>";
+        ?>
+
+        <form method="post" enctype="multipart/form-data" action="index.php?request=80&action=85" class="">
+            <div class="d-flex justify-content-center">
+                <div>
+                    <input type="file" id="file" name="upload_file" required>
+                </div>
+                <div>
+                    <button type=" submit" name="addFileSubmit" class="button">Envoyer</button>
+                </div>
+                
+            </div>
+
+        </form>
+    </div>
+</article>
+    
+
+    
 </div>
 
-<form method="post" enctype="multipart/form-data" action="index.php?request=80&action=85">
-    <div class="row justify-content-center">
-        <div class="col-md-3">
-            <input type="file" id="file" name="upload_file" required>
-        </div>
-        <div class="col-md-3">
-            <button type=" submit" name="addFileSubmit" class="button">Envoyer</button>
-        </div>
-        
-    </div>
 
-</form>

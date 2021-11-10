@@ -14,3 +14,5 @@ Define('AddFile', 85);
 Define('Modifier', 88);
 Define('DeleteFile', 90);
 Define('c_profil', 89);
+Define('Cagnotte', 95);
+Define('c_cagnotte', 100);

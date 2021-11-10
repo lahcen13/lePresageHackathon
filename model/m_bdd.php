@@ -87,11 +87,35 @@ function addInvestor($MDP, $prenom, $nom, $email)
     return $preparation->execute();
 }
 
-function addFile($file, $type, $investorId)
+function addFile($investorId)
 {
-    $requete = "insert into document ( file, type, investorId) VALUES (':file',':type','" . $investorId . "')";
-    $stmt = SGBDConnect()->prepare($requete);
-    $stmt->bindParam(':file', $file, PDO::PARAM_LOB);
-    $stmt->bindParam(':type', $type);
-    return $stmt->execute();
+    //$requete = "insert into document ( name, link, uploadDate, investorId) VALUES (':name',':link','" . $investorId . "'";
+    $requete = "insert into document (investorId) VALUES ('".$investorId . "')";
+    $connexion = SGBDConnect();
+    $stmt = $connexion ->prepare($requete);
+    //$stmt->bindParam(':name', $name);
+    //$stmt->bindParam(':link', $link, PDO::PARAM_LOB);
+
+    if($stmt->execute() === true) {
+        $last_id = $connexion->lastInsertId();
+        return $last_id;
+    } else {
+        return false;
+    }
+}
+
+function addFileInfo($fileId, $name, $link){
+    $requete = 'UPDATE document SET `name`=:docName,`link`=:docLink WHERE `documentId`=:docId;';
+    
+    $preparation = SGBDConnect()->prepare($requete);
+
+    $preparation->bindParam(':docId', $fileId,PDO::PARAM_INT);
+    $preparation->bindParam(':docName', $name);
+    $preparation->bindParam(':docLink', $link, PDO::PARAM_LOB);
+
+    var_dump($requete);
+    var_dump($name);
+    var_dump($link);
+
+    return $preparation->execute();
 }

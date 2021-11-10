@@ -3,14 +3,23 @@ require_once './view/v_head.html';
 require_once './view/v_navbar.php';
 if ($_SESSION['TABLE'] == 'admin') {
 ?>
-<form action="index.php?request=95" method="POST">
-    <input type="number" name="cagnotte" value=<?php echo "'" . $cagnotte . "'"; ?>>
-    <input type="submit" name="submitCagnotte">
-</form>
+<div class="form_cagn row justify-content-space-between">
+    <form class=" justify-content-space-between" action="index.php?request=95" method="POST">
+        <h5 class="">Choissiez le montant de la cagnotte: </h5>
+        <input type="number" name="cagnotte" class="" value=<?php echo "'" . $cagnotte . "'"; ?>>
+        <input type="submit" name="submitCagnotte">
+    </form>
+</div>
 <?php
 }
 ?>
 <style>
+
+.form_cagn{
+  margin:2%;
+  display:flex;
+}
+
 .progress {
     position: relative;
     height: 70px;
@@ -34,7 +43,16 @@ div.progress-bar{
 p.alert.alert-success{
     background-color:#FFFFD6 !important;
 }
+.parag{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding-top:5%;
+}
 </style>
+<div class="parag row justify-content-center">
+    <h3 class="col-6">Aidez nous en investissant dans notre projet pour nous permettre d'acquérir le terrain sur lequel nous souhaitons developper notre restaurant.</h3>
+</div>
 <div class="container">
     <div class="progress progress-striped active">
         <p class="alert alert-success raised"><strong><?php echo $budgetTotal; ?>€</strong></p>
@@ -49,7 +67,3 @@ p.alert.alert-success{
     </div>
 </div>
 
-
-<?php
-require_once './view/v_footer.php';
-?>

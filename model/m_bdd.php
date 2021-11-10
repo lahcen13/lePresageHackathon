@@ -120,7 +120,7 @@ function addFileInfo($fileId, $name, $link){
     var_dump($link);
 
     return $preparation->execute();
-
+}
 function updateCagnotte($Cagnotte)
 {
     $requete = "update investissement set Cagnotte=:cagnotte";
@@ -147,8 +147,7 @@ function budgetTotal()
     return $ligne;
 }
 
-function updateStatus($bol, $id)
-{
+function updateStatus($bol, $id){
     $requete = "update investor set confirmBudget=:bol where investorId=:id";
     $stmt = SGBDConnect()->prepare($requete);
     $stmt->bindParam(':bol', $bol);

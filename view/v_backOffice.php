@@ -8,7 +8,7 @@ $allInvestors = getAllInvestors();
 
 echo "<table class=table row'>";
 echo "<thead class='Table_head col-8'>";
-echo "<th>ID</th><th>Mail</th><th>Nom</th><th>Prenom</th><th>Budget</th><th>Statut</th><th>Adresse</th><th>Ville</th><th>Code Postal</th><th>Société</th> ";
+echo "<th>ID</th><th>Mail</th><th>Nom</th><th>Prénom</th><th>Budget</th><th>Statut</th><th>Adresse</th><th>Ville</th><th>Code Postal</th><th>Société</th> ";
 echo "</tr>";
 echo "</thead>";
 $totalDonations = 0;
@@ -34,7 +34,7 @@ foreach ($allInvestors as $line) {        //boucle des enregistrements
             if ($value == 1) {
                 echo ("<th>confirmé</th>");
             } else {
-                echo ("<th> non confirmé</th>");
+                echo ("<th>Non confirmé</th>");
             }
         }
     }

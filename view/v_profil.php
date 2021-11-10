@@ -138,13 +138,38 @@ require_once './view/v_head.html';
                 </div>
             </div>
         </form>
+    </div>
+
+    <article class="container">
+    <div class="reg_prof">
+        <?php
+            $allfiles = getAllFilesOfInvestor($_SESSION['ID']);
+            echo "<table class=table row'>";
+            echo "<thead class='Table_head col-8'>";
+            echo "<tr><th>ID</th><th>Nom</th><th>Lien de téléchargement</th><th>Date de création</th></tr>";
+            echo "</thead>";
+            echo "<tbody class='Table_body'>";
+            foreach ($allfiles as $line) {        //boucle des enregistrements
+                echo("<tr>");
+                foreach ($line as $key => $value) {  //boucle des colonnes
+                    if($key==='link'){
+                        echo("<td><a href='$value' download>$value</a></td>");
+                    } else {
+                        echo("<td>$value</td>");
+                    }                   
+                }
+                echo("</tr>");
+            }
+            echo "</tbody>";
+            echo "</table>";
+        ?>
 
         <form method="post" enctype="multipart/form-data" action="index.php?request=80&action=85" class="">
-            <div class="row justify-content-center">
-                <div class="col-md-3">
+            <div class="d-flex justify-content-center">
+                <div>
                     <input type="file" id="file" name="upload_file" required>
                 </div>
-                <div class="col-md-3">
+                <div>
                     <button type=" submit" name="addFileSubmit" class="button">Envoyer</button>
                 </div>
                 
@@ -152,6 +177,7 @@ require_once './view/v_head.html';
 
         </form>
     </div>
+</article>
     
 
     

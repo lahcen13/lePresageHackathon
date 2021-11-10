@@ -58,7 +58,7 @@ switch ($_REQUEST['action']) {
 
                 move_uploaded_file($_FILES["upload_file"]["tmp_name"],$targetDirectory.$targetFileName); //ça marche incroyablement bien, il faut juste créer, au même niveau que le répertoire LePresageHackathon, un répertoire uploads
                 if(addFileInfo($fileId, $originalFileName, $targetDirectory.$targetFileName)){
-                    echo "File Uploaded.";
+                    header('location: index.php?request='.Profil);
                 }
             }
             

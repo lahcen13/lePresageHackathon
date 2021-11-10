@@ -29,6 +29,12 @@ if ($_SESSION['TABLE'] == 'admin') {
     right: 10px;
     top: 9px;
 }
+div.progress-bar{
+    background-color:#2D97C8 !important;
+}
+p.alert.alert-success{
+    background-color:#FFFFD6 !important;
+}
 </style>
 
 <div class="container">

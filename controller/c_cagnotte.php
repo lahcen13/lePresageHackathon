@@ -19,7 +19,9 @@ switch ($_REQUEST['action']) {
         $cagnotte = $ligne['Cagnotte'];
         $ligne = budgetTotal();
         $budgetTotal = $ligne['budgetTotal'];
-        echo  $budgetTotal;
+
+
+        $pourcentage = ($budgetTotal * 100) / $cagnotte;
         include('./view/v_cagnotte.php');
         break;
 }

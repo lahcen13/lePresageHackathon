@@ -1,7 +1,6 @@
 <?php
 require_once './view/v_navbar.php';
 require_once './view/v_head.html';
-echo  $confirmBudget;
 ?>
 <h1><em><strong>Gestion des investisseurs</strong></em></h1>
 <form action='index.php?request=1&action=3' method="POST">

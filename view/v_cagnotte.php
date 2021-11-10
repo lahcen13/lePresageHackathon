@@ -1,7 +1,6 @@
 <?php
 require_once './view/v_head.html';
 require_once './view/v_navbar.php';
-echo 'cagnotte est de :' . $cagnotte;
 if ($_SESSION['TABLE'] == 'admin') {
 ?>
 <form action="index.php?request=95" method="POST">
@@ -30,7 +29,6 @@ if ($_SESSION['TABLE'] == 'admin') {
     top: 9px;
 }
 </style>
-
 <div class="container">
     <div class="progress progress-striped active">
         <p class="alert alert-success raised"><strong><?php echo $budgetTotal; ?>€</strong></p>

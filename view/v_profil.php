@@ -28,56 +28,52 @@ require_once './view/v_head.html';
             }
                 ?>
 
-                <?php
-                if (isset($societe)) {
-                ?>
-            <div>
-                <?php echo $societe ?></div>
-            <?php } else echo "Non défini"
-            ?>
-            </h6>
+
+
+
+                </h6>
             <p class="card-text">Société :
                 <?php
-                if (isset($societe)) {
-                ?>
+                    if (isset($societe)) {
+                    ?>
             <div>
                 <?php echo $societe ?></div>
             <?php } else echo "Non définie"
-        ?>
+            ?>
             </p>
             <p class="card-text">Adresse :
                 <?php
-            if (isset($adresse)) {
-            ?>
+                if (isset($adresse)) {
+                ?>
             <div>
                 <?php echo $adresse . ', ' . $ville . ', ' . $codePostal ?></div>
             <?php } else echo "Non définie"
-    ?>
+        ?>
             <br> Ville :
             <?php
-    if (isset($ville)) {
-    ?>
+        if (isset($ville)) {
+        ?>
             <div>
                 <?php echo $ville ?></div>
             <?php } else echo "Non définie"
-    ?>
+        ?>
             <br>Code Postal :
             <?php
-    if (isset($codePostal)) {
-    ?>
+        if (isset($codePostal)) {
+        ?>
             <div>
                 <?php echo $codePostal ?></div>
             <?php } else echo "Non défini"
-    ?>
+        ?>
             </p>
             <p class="card-text">E-mail :
                 <?php
-        if (isset($email)) {
-        ?>
+            if (isset($email)) {
+            ?>
             <div>
                 <?php echo $email ?></div>
             <?php } else echo "Non définie"
-?>
+    ?>
             </p>
         </div>
     </div>
@@ -148,7 +144,7 @@ require_once './view/v_head.html';
     </div>
 </div>
 <div class="form_style">
-    <form method="post"  enctype="multipart/form-data" action="index.php?request=80&action=85">
+    <form method="post" enctype="multipart/form-data" action="index.php?request=80&action=85">
         <div class="row justify-content-center">
             <div class="col-md-3">
                 <input type="file" id="file" name="p_file1" required>
